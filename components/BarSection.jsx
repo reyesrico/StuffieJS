@@ -3,7 +3,7 @@ import React from 'react';
 class BarSection extends React.Component {
   render() {
     return (
-      <div>
+      <div className="bar">
           <span>Stuffie Logo</span>
           <span>Otro stuff</span>
       </div>
