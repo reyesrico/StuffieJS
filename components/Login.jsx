@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import TextField from './TextField.jsx';
+import Users from '../objects/Users.jsx';
 
 class Login extends React.Component {
     constructor(props) {
@@ -9,6 +10,9 @@ class Login extends React.Component {
             username: '',
             password: ''
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     validateForm() {
@@ -16,12 +20,18 @@ class Login extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        this.setState({ [name]: value });
     }
 
-    handleSubmit(event){
+    handleSubmit(event) {
+        var users = new Users();
+        var current_user = users.getUser(this.state.username);
+        if(current_user !== undefined){
+            alert("Login successful");
+        }
         event.preventDefault();
     }
 
@@ -31,17 +41,19 @@ class Login extends React.Component {
                 <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
                     <TextField
-                        autofocus
                         type="mail"
+                        name="username"
                         value={this.state.username}
                         hintText="Enter your Username"
                         onChange={this.handleChange} />
                     <TextField
                         type="password"
+                        name="password"
                         hintText="Enter your Password"
                         onChange={this.handleChange} />
                     <input type="submit" value="Login" />
                 </form>
+                <hr />
             </div>
         );
     }
