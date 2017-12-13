@@ -1040,6 +1040,7 @@ var MainPage = function (_React$Component) {
           _react2.default.createElement(_FeedSection2.default, null),
           _react2.default.createElement(_AppsSection2.default, null)
         ),
+        _react2.default.createElement('hr', null),
         _react2.default.createElement(_Footer2.default, null)
       );
     }
@@ -18544,9 +18545,15 @@ var FeedSection = function (_React$Component) {
           'Products'
         ),
         _react2.default.createElement(
-          'div',
+          'ul',
           null,
-          JSON.stringify(this.user_products)
+          this.user_products.map(function (product) {
+            return _react2.default.createElement(
+              'li',
+              null,
+              product.name
+            );
+          })
         )
       );
     }

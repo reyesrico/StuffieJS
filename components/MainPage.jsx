@@ -16,6 +16,7 @@ class MainPage extends React.Component {
           <FeedSection />
           <AppsSection />
         </div>
+        <hr />
         <Footer />      
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import UProducts from '../objects/UProducts.jsx';
 
 class FeedSection extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     var uproducts = new UProducts();
     this.user_products = uproducts.getProductsperUser('reyesrico@hotmail.com');
@@ -11,8 +11,12 @@ class FeedSection extends React.Component {
   render() {
     return (
       <div className="main">
-          <div id="feed-title">Products</div>
-          <div>{JSON.stringify(this.user_products)}</div>
+        <div id="feed-title">Products</div>
+        <ul>
+          { this.user_products.map(function (product) {
+            return <li>{product.name}</li>;
+          }) }
+        </ul>
       </div>
     );
   }
