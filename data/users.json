@@ -1,12 +1,12 @@
-{  
-    "users":[  
-       {  
-          "mail":"reyesrico@hotmail.com",
-          "pass":"secreto"
-       },
-       {  
-          "mail":"whatismaster@yahoo.com",
-          "pass":"otro"
-       }
+{
+    "users": [
+        {
+            "mail": "reyesrico@hotmail.com",
+            "pass": "secreto"
+        },
+        {
+            "mail": "whatismaster@yahoo.com",
+            "pass": "otro"
+        }
     ]
- }
+}

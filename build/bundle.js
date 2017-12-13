@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
   module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(17);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -577,7 +577,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(17);
+  var ReactPropTypesSecret = __webpack_require__(18);
   var loggedTypeFailures = {};
 }
 
@@ -876,7 +876,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(20);
+var isTextNode = __webpack_require__(21);
 
 /*eslint-disable no-bitwise */
 
@@ -935,6 +935,47 @@ module.exports = focusNode;
 
 /***/ }),
 /* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var usersFile = __webpack_require__(32);
+var uproductsFile = __webpack_require__(33);
+var productsFile = __webpack_require__(34);
+
+class FileConnection {
+
+    constructor(object_name) {
+        if (object_name === 'users') {
+            this.file = usersFile;
+        }
+        else if (object_name === 'uproducts') {
+            this.file = uproductsFile;
+        }
+        else if (object_name === 'products') {
+            this.file = productsFile;
+        }
+        else {
+            this.file = null;
+        }
+    }
+
+    Users() {
+        return this.file.users;
+    }
+
+    UProducts() {
+        return this.file.uproducts;
+    }
+
+    Products() {
+        return this.file.products;
+    }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (FileConnection);
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -946,25 +987,25 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(18);
+var _reactDom = __webpack_require__(19);
 
-var _BarSection = __webpack_require__(27);
+var _BarSection = __webpack_require__(28);
 
 var _BarSection2 = _interopRequireDefault(_BarSection);
 
-var _MenuSection = __webpack_require__(28);
+var _MenuSection = __webpack_require__(29);
 
 var _MenuSection2 = _interopRequireDefault(_MenuSection);
 
-var _FeedSection = __webpack_require__(29);
+var _FeedSection = __webpack_require__(30);
 
 var _FeedSection2 = _interopRequireDefault(_FeedSection);
 
-var _AppsSection = __webpack_require__(30);
+var _AppsSection = __webpack_require__(36);
 
 var _AppsSection2 = _interopRequireDefault(_AppsSection);
 
-var _Footer = __webpack_require__(31);
+var _Footer = __webpack_require__(37);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -1010,7 +1051,7 @@ var MainPage = function (_React$Component) {
 (0, _reactDom.render)(_react2.default.createElement(MainPage, null), document.getElementById('stuffie'));
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1038,7 +1079,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2403,7 +2444,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2422,7 +2463,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2460,15 +2501,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(19);
+  module.exports = __webpack_require__(20);
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(23);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2704,7 +2745,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2719,7 +2760,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(21);
+var isNode = __webpack_require__(22);
 
 /**
  * @param {*} object The object to check.
@@ -2732,7 +2773,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2760,7 +2801,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2794,8 +2835,8 @@ var containsNode = __webpack_require__(12);
 var focusNode = __webpack_require__(13);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(23);
-var camelizeStyleName = __webpack_require__(25);
+var hyphenateStyleName = __webpack_require__(24);
+var camelizeStyleName = __webpack_require__(26);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18162,7 +18203,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18177,7 +18218,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(24);
+var hyphenate = __webpack_require__(25);
 
 var msPattern = /^ms-/;
 
@@ -18204,7 +18245,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18240,7 +18281,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18255,7 +18296,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(26);
+var camelize = __webpack_require__(27);
 
 var msPattern = /^-ms-/;
 
@@ -18283,7 +18324,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18318,7 +18359,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18377,7 +18418,7 @@ var BarSection = function (_React$Component) {
 exports.default = BarSection;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18450,7 +18491,7 @@ var MenuSection = function (_React$Component) {
 exports.default = MenuSection;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18466,6 +18507,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _UProducts = __webpack_require__(31);
+
+var _UProducts2 = _interopRequireDefault(_UProducts);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18477,27 +18522,31 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FeedSection = function (_React$Component) {
   _inherits(FeedSection, _React$Component);
 
-  function FeedSection() {
+  function FeedSection(props) {
     _classCallCheck(this, FeedSection);
 
-    return _possibleConstructorReturn(this, (FeedSection.__proto__ || Object.getPrototypeOf(FeedSection)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (FeedSection.__proto__ || Object.getPrototypeOf(FeedSection)).call(this, props));
+
+    var uproducts = new _UProducts2.default();
+    _this.user_products = uproducts.getProductsperUser('reyesrico@hotmail.com');
+    return _this;
   }
 
   _createClass(FeedSection, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "main" },
+        'div',
+        { className: 'main' },
         _react2.default.createElement(
-          "div",
-          { id: "feed-title" },
-          "Title"
+          'div',
+          { id: 'feed-title' },
+          'Products'
         ),
         _react2.default.createElement(
-          "div",
-          { id: "feed-news" },
-          "News"
+          'div',
+          null,
+          JSON.stringify(this.user_products)
         )
       );
     }
@@ -18509,7 +18558,90 @@ var FeedSection = function (_React$Component) {
 exports.default = FeedSection;
 
 /***/ }),
-/* 30 */
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__connection_FileConnection_jsx__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Products_jsx__ = __webpack_require__(35);
+
+
+
+class UProducts {
+    constructor(){
+        var conn = new __WEBPACK_IMPORTED_MODULE_0__connection_FileConnection_jsx__["a" /* default */]('uproducts');
+        this.uproducts = conn.UProducts();
+        this.allproducts = new __WEBPACK_IMPORTED_MODULE_1__Products_jsx__["a" /* default */]();
+    }
+
+    getProductsperUser(mail){
+        var products = [];
+        var uproduct;
+        this.uproducts.forEach(function(up){
+            if(up.mail === mail){
+                uproduct = up;
+            }
+        });
+
+        var prs = this.allproducts;
+        uproduct.products.forEach(function(usp){
+            products.push(prs.getProduct(usp.id));
+        });
+
+        return products;
+    }
+} 
+
+/* harmony default export */ __webpack_exports__["default"] = (UProducts);
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = {"users":[{"mail":"reyesrico@hotmail.com","pass":"secreto"},{"mail":"whatismaster@yahoo.com","pass":"otro"}]}
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = {"uproducts":[{"mail":"reyesrico@hotmail.com","products":[{"id":1},{"id":2},{"id":3},{"id":4}]},{"mail":"whatismaster@yahoo.com","products":[{"id":5},{"id":6}]}]}
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+module.exports = {"products":[{"id":1,"name":"product 1","description":"description product 1"},{"id":2,"name":"product 2","description":"description product 2"},{"id":3,"name":"product 3","description":"description product 3"},{"id":4,"name":"product 4","description":"description product 4"},{"id":5,"name":"product 5","description":"description product 5"},{"id":6,"name":"product 6","description":"description product 6"}]}
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__connection_FileConnection_jsx__ = __webpack_require__(14);
+
+
+class Products {
+    constructor(){
+        var conn = new __WEBPACK_IMPORTED_MODULE_0__connection_FileConnection_jsx__["a" /* default */]('products');
+        this.products = conn.Products();
+    }
+
+    getProduct(id){
+        var product;
+        this.products.forEach(function(p){
+            if(p.id === id){
+                product = p;
+            }
+        });
+        return product;
+    }
+} 
+
+/* harmony default export */ __webpack_exports__["a"] = (Products);
+
+/***/ }),
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18577,7 +18709,7 @@ var AppsSection = function (_React$Component) {
 exports.default = AppsSection;
 
 /***/ }),
-/* 31 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
