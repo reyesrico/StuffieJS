@@ -1,6 +1,7 @@
 var usersFile = require('../data/users.json');
 var uproductsFile = require('../data/uproducts.json');
 var productsFile = require('../data/products.json');
+var categoriesFile = require('../data/categories.json');
 
 class FileConnection {
 
@@ -13,6 +14,9 @@ class FileConnection {
         }
         else if (object_name === 'products') {
             this.file = productsFile;
+        }
+        else if (object_name === 'categories') {
+            this.file = categoriesFile;
         }
         else {
             this.file = null;
@@ -29,6 +33,10 @@ class FileConnection {
 
     Products() {
         return this.file.products;
+    }
+
+    Categories() {
+        return this.file.categories;
     }
 }
 

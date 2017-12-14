@@ -1,0 +1,59 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Books & Audible",
+            "description": "description category 1"
+        },
+        {
+            "id": 2,
+            "name": "Movies, Music & Games",
+            "description": "description category 2"
+        },
+        {
+            "id": 3,
+            "name": "Electronics, Computers & Office",
+            "description": "description category 3"
+        },
+        {
+            "id": 4,
+            "name": "Home, Garden, Pets & Tools",
+            "description": "description category 4"
+        },
+        {
+            "id": 5,
+            "name": "Beauty & Health",
+            "description": "description category 5"
+        },
+        {
+            "id": 6,
+            "name": "Toys, Kids & Baby",
+            "description": "description category 6"
+        },
+        {
+            "id": 7,
+            "name": "Clothing, Shoes & Jewelry",
+            "description": "description category 7"
+        },
+        {
+            "id": 8,
+            "name": "Handmade",
+            "description": "description category 8"
+        },
+        {
+            "id": 9,
+            "name": "Sports & Outdoors",
+            "description": "description category 9"
+        },
+        {
+            "id": 10,
+            "name": "Automative & Industrial",
+            "description": "description category 10"
+        },
+        {
+            "id": 99,
+            "name": "Other",
+            "description": "description category 99"
+        }
+    ]
+}

@@ -2,33 +2,39 @@
     "products": [
         {
             "id": 1,
-            "name": "product 1",
-            "description": "description product 1"
+            "name": "Harry Potter",
+            "description": "description product 1",
+            "category": 1
         },
         {
             "id": 2,
-            "name": "product 2",
-            "description": "description product 2"
+            "name": "Star Wars Episode VII",
+            "description": "description product 2",
+            "category": 2
         },
         {
             "id": 3,
-            "name": "product 3",
-            "description": "description product 3"
+            "name": "Dell XPS 13",
+            "description": "description product 3",
+            "category": 3
         },
         {
             "id": 4,
-            "name": "product 4",
-            "description": "description product 4"
+            "name": "Nintendo Switch",
+            "description": "description product 4",
+            "category": 2
         },
         {
             "id": 5,
-            "name": "product 5",
-            "description": "description product 5"
+            "name": "Apple TV",
+            "description": "description product 5",
+            "category": 2
         },
         {
             "id": 6,
-            "name": "product 6",
-            "description": "description product 6"
+            "name": "Snowboard",
+            "description": "description product 6",
+            "category": 9
         }
     ]
 }

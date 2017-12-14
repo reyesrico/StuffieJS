@@ -13,9 +13,11 @@ class FeedSection extends React.Component {
       <div className="main">
         <div id="feed-title">Products</div>
         <ul>
-          { this.user_products.map(function (product) {
-            return <li>{product.name}</li>;
-          }) }
+          {
+            this.user_products.map(function (product) {
+              return <li key={product.id}>{product.name}</li>;
+            })
+          }
         </ul>
       </div>
     );
