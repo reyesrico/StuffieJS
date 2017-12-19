@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import TextField from './TextField.jsx';
 import Users from '../objects/Users.jsx';
 
@@ -29,8 +28,11 @@ class Login extends React.Component {
     handleSubmit(event) {
         var users = new Users();
         var current_user = users.getUser(this.state.username);
-        if(current_user !== undefined){
-            alert("Login successful");
+        if (current_user !== undefined) {
+            localStorage.setItem('username', this.state.username);
+            localStorage.setItem('password', this.state.password);
+            this.props.history.push('/');
+            alert("Login successful");            
         }
         event.preventDefault();
     }
@@ -59,7 +61,4 @@ class Login extends React.Component {
     }
 }
 
-render(<Login />, document.getElementById('login'));
-
-
-//export default Login;
+export default Login;

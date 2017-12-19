@@ -1,7 +1,27 @@
 /* Bar */
-.bar {
+.bar {    
     background-color: lightgrey;
+    display: inline-block;    
     width: 100%;
+}
+
+.logo {
+    float: left;
+    width: 30%;
+}
+
+.stuff {
+    display: inline-block;
+    width: 60%;
+}
+
+.logout {
+    cursor: pointer;
+    float: right;
+    font-family: Segoe UI;
+    font-size: 12px;
+    text-decoration: underline;
+    width: 10%;
 }
 
 /* Content */ 

@@ -11,16 +11,16 @@ class MainPage extends React.Component {
     return (
       <div>
         <BarSection />
-        <div className="content">        
+        <div className="content">
           <MenuSection />
           <FeedSection />
           <AppsSection />
         </div>
         <hr />
-        <Footer />      
+        <Footer />
       </div>
     );
   }
 }
 
-render(<MainPage />, document.getElementById('stuffie'));
+export default MainPage;
