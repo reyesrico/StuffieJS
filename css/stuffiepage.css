@@ -1,0 +1,15 @@
+.stuffie {
+    display: inline-block;
+    width: 100%;
+}
+
+.stuffieLogin {
+    float: left;
+    width: 50%;
+}
+
+.stuffieRegister {
+    background-color: lightgray;
+    float: right;
+    width: 50%;    
+}

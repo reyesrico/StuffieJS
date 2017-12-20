@@ -12,7 +12,6 @@ class BarSection extends React.Component {
     localStorage.setItem('username', '');
     localStorage.setItem('password', '');
     alert("Logout");
-    //this.props.history.push('/');
   }
 
   render() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import  { Redirect } from 'react-router-dom';
 import TextField from './TextField.jsx';
 import Users from '../objects/Users.jsx';
 
@@ -31,8 +32,8 @@ class Login extends React.Component {
         if (current_user !== undefined) {
             localStorage.setItem('username', this.state.username);
             localStorage.setItem('password', this.state.password);
-            this.props.history.push('/');
-            alert("Login successful");            
+            alert("Login successful");
+            //<Redirect to='/' />
         }
         event.preventDefault();
     }
