@@ -1,5 +1,5 @@
 import React from 'react';
-import  { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import TextField from './TextField.jsx';
 import Users from '../objects/Users.jsx';
 
@@ -8,7 +8,8 @@ class Login extends React.Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            redirectToNewPage: false
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -33,12 +34,15 @@ class Login extends React.Component {
             localStorage.setItem('username', this.state.username);
             localStorage.setItem('password', this.state.password);
             alert("Login successful");
-            //<Redirect to='/' />
+            this.setState({ redirectToNewPage: true });
         }
         event.preventDefault();
     }
 
     render() {
+        if(this.state.redirectToNewPage) {
+            return (<Redirect to='/' />);
+        }
         return (
             <div>
                 <h1>Login</h1>
@@ -56,7 +60,6 @@ class Login extends React.Component {
                         onChange={this.handleChange} />
                     <input type="submit" value="Login" />
                 </form>
-                <hr />
             </div>
         );
     }

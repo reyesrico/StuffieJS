@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import  { Redirect } from 'react-router-dom';
 import BarSection from './BarSection.jsx';
 import MenuSection from './MenuSection.jsx';
-import FeedSection from './FeedSection.jsx';
+import MainSection from './MainSection.jsx';
 import AppsSection from './AppsSection.jsx';
 import Footer from './Footer.jsx';
 
@@ -23,10 +23,9 @@ class MainPage extends React.Component {
         <BarSection />
         <div className="content">
           <MenuSection />
-          <FeedSection />
+          <MainSection />
           <AppsSection />
         </div>
-        <hr />
         <Footer />
       </div>
     );

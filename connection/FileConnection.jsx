@@ -2,6 +2,7 @@ var usersFile = require('../data/users.json');
 var uproductsFile = require('../data/uproducts.json');
 var productsFile = require('../data/products.json');
 var categoriesFile = require('../data/categories.json');
+//var MongoClient = require('mongodb').MongoClient;
 
 class FileConnection {
 
@@ -21,7 +22,16 @@ class FileConnection {
         else {
             this.file = null;
         }
+
+
     }
+
+    // ConnectDB () {
+    //     var uri = "mongodb://chiquitonet:r5adxpq1@cluster0-wpeiv.mongodb.net/test";
+    //     MongoClient.connect(uri, function(err, db) {
+    //       db.close();
+    //     });        
+    // }
 
     Users() {
         return this.file.users;

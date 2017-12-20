@@ -66,7 +66,6 @@ class Register extends React.Component {
                     </div>
                     <input type="submit" value="Register" />
                 </form>
-                <hr />
             </div>
         );
     }
