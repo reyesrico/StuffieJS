@@ -8,7 +8,8 @@ class Register extends React.Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            redirectToNewPage: false            
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -30,19 +31,22 @@ class Register extends React.Component {
         var users = new Users();
         var current_user = users.getUser(this.state.username);
         if (current_user === undefined) {
-            users.push({"mail": this.state.username, "pass": this.state.password});
+            users.setUser({"mail": this.state.username, "pass": this.state.password});
         }
         else{
             alert("User already registered");
         }
         localStorage.setItem('username', this.state.username);
         localStorage.setItem('password', this.state.password);
-        alert("Login successful");
-        <Redirect to='/' />    
+        alert("Register successful");
+        this.setState({ redirectToNewPage: true });
         event.preventDefault();
     }
 
     render() {
+        if(this.state.redirectToNewPage) {
+            return (<Redirect to='/' />);
+        }        
         return (
             <div>
                 <h1>Register</h1>
@@ -61,6 +65,7 @@ class Register extends React.Component {
                         <TextField
                             type="password"
                             name="password"
+                            value={this.state.password}
                             hintText="Enter your Password"
                             onChange={this.handleChange} />
                     </div>

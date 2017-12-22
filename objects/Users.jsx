@@ -15,6 +15,10 @@ class Users {
         });
         return user;
     }
+
+    setUser(user){
+        this.users.push(user);
+    }
 } 
 
 export default Users;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FeedSection from './FeedSection.jsx';
+import Welcome from './Welcome.jsx';
 
 class MainSection extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class MainSection extends React.Component {
             <div className='mainsection'>
                 <Switch>
                     <Route exact path='/' component={FeedSection} />
+                    <Route path='/login' component={Welcome} />
                 </Switch>
             </div>
         );

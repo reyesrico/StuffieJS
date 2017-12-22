@@ -10,11 +10,14 @@ class UProducts {
 
     getUProduct(mail) {
         var uproduct;
-        this.uproducts.forEach(function (up) {
-            if (up.mail === mail) {
-                uproduct = up;
-            }
-        });
+        
+        if(this.uproducts){
+            this.uproducts.forEach(function (up) {
+                if (up.mail === mail) {
+                    uproduct = up;
+                }
+            });    
+        }
         return uproduct;
     }
 
@@ -23,9 +26,11 @@ class UProducts {
         var uproduct = this.getUProduct(mail);
         var prs = this.allproducts;
 
-        uproduct.products.forEach(function (usp) {
-            products.push(prs.getProduct(usp.id));
-        });
+        if(uproduct){
+            uproduct.products.forEach(function (usp) {
+                products.push(prs.getProduct(usp.id));
+            });    
+        }
 
         return products;
     }
@@ -35,11 +40,13 @@ class UProducts {
         var uproduct = this.getUProduct(mail);
         var prs = this.allproducts;
 
-        uproduct.products.forEach(function (usp) {
-            if (usp.category === categoryId) {
-                products.push(prs.getProduct(usp.id));
-            }
-        });
+        if(uproduct){
+            uproduct.products.forEach(function (usp) {
+                if (usp.category === categoryId) {
+                    products.push(prs.getProduct(usp.id));
+                }
+            });    
+        }
         return products;
     }
 }
