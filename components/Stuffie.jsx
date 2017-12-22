@@ -14,8 +14,7 @@ class Stuffie extends React.Component {
         return (
             <div className='stuffie'>
                 <Switch>
-                    <Route exact path='/' component={AuthRoute} />
-                    <Route path='/login' component={Welcome} />
+                    <Route path='/' component={AuthRoute} />
                 </Switch>
             </div>
         );

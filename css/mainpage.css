@@ -5,6 +5,18 @@
     width: 100%;
 }
 
+.barLogo {
+    height: 48px;
+    width: 48px;
+}
+
+.barStuffie {
+    color: white;
+    font-family: Segoe UI;
+    font-size: 24px;
+    margin-left: 8px;
+}
+
 .logo {
     float: left;
     width: 30%;

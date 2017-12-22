@@ -22,7 +22,8 @@ class AuthRoute extends React.Component {
       return <MainPage />;
     }
     else {
-      return <Redirect to={this.PUBLIC_ROOT} />;
+      return <Welcome />;
+      //return <Redirect to={this.PUBLIC_ROOT} />;
     }
   }
 }
