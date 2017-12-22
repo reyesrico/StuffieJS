@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import TextField from './TextField.jsx';
-import Users from '../objects/Users.jsx';
+import TextField from './web_objects/TextField.jsx';
+import Users from '../models/Users.jsx';
 
 class Register extends React.Component {
     constructor(props) {

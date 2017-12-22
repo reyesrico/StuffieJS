@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Login from './Login.jsx';
-import Image from './Image.jsx';
+import Image from '../web_objects/Image.jsx';
 
 class BarSection extends React.Component {
   constructor(props){

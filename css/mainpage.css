@@ -55,6 +55,14 @@
     width: 15%;
 }
 
+.menu ul{
+    padding-left: 16px;
+}
+
+.menu ul li{
+    text-indent: -4px;
+}
+
 .apps {
     background-color: lightgray;
     float: right;

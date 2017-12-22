@@ -1,5 +1,5 @@
 import React from 'react';
-import UProducts from '../objects/UProducts.jsx';
+import UProducts from '../../models/UProducts.jsx';
 
 class FeedSection extends React.Component {
   constructor(props) {

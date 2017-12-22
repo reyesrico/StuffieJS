@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UProducts from '../objects/UProducts.jsx';
-import Product from './Product.jsx';
+import UProducts from '../models/UProducts.jsx';
 
 class Products extends React.Component {
     constructor(props) {

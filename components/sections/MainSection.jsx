@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FeedSection from './FeedSection.jsx';
-import Products from './Products.jsx';
-import Product from './Product.jsx';
+import Products from '../Products.jsx';
+import Product from '../Product.jsx';
 
 class MainSection extends React.Component {
     constructor(props) {

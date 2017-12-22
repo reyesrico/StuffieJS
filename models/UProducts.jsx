@@ -34,21 +34,6 @@ class UProducts {
 
         return products;
     }
-
-    getProductsperUserperCategory(mail, categoryId) {
-        var products = [];
-        var uproduct = this.getUProduct(mail);
-        var prs = this.allproducts;
-
-        if(uproduct){
-            uproduct.products.forEach(function (usp) {
-                if (usp.category === categoryId) {
-                    products.push(prs.getProduct(usp.id));
-                }
-            });    
-        }
-        return products;
-    }
 }
 
 export default UProducts;

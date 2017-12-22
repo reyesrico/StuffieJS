@@ -1,8 +1,8 @@
 import React from 'react';
-import UProducts from '../objects/UProducts.jsx';
-import Categories from '../objects/Categories.jsx';
-import TextField from './TextField.jsx';
-import DropDown from './DropDown.jsx';
+import UProducts from '../models/UProducts.jsx';
+import Categories from '../models/Categories.jsx';
+import TextField from './web_objects/TextField.jsx';
+import DropDown from './web_objects/DropDown.jsx';
 
 class Product extends React.Component {
     constructor(props) {
@@ -39,7 +39,7 @@ class Product extends React.Component {
             return (
                 <div>
                     Show Product.
-            </div>
+                </div>
             );
         }
         return (
