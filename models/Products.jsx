@@ -15,6 +15,19 @@ class Products {
         });
         return product;
     }
+
+    addProduct(product){
+        this.products.push(product);
+    }
+
+    isProductRegistered(product){
+        this.products.forEach(function(p){
+            if(p.name === product.name){
+                return true;
+            }
+        });
+        return false;
+    }
 } 
 
 export default Products;

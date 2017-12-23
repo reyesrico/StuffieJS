@@ -9,7 +9,7 @@ class Register extends React.Component {
         this.state = {
             username: '',
             password: '',
-            redirectToNewPage: false            
+            redirectToNewPage: false
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -31,9 +31,9 @@ class Register extends React.Component {
         var users = new Users();
         var current_user = users.getUser(this.state.username);
         if (current_user === undefined) {
-            users.setUser({"mail": this.state.username, "pass": this.state.password});
+            users.setUser({ "mail": this.state.username, "pass": this.state.password });
         }
-        else{
+        else {
             alert("User already registered");
         }
         localStorage.setItem('username', this.state.username);
@@ -44,9 +44,9 @@ class Register extends React.Component {
     }
 
     render() {
-        if(this.state.redirectToNewPage) {
+        if (this.state.redirectToNewPage) {
             return (<Redirect to='/' />);
-        }        
+        }
         return (
             <div>
                 <h1>Register</h1>

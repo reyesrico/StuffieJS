@@ -34,6 +34,15 @@ class UProducts {
 
         return products;
     }
+
+    isUProductRegistered(mail, productId){
+        this.uproducts.forEach(function(up, mail, productId){
+            if(up.mail === mail && up.products.include({"id": productId})){
+                return true;
+            }
+        });
+        return false;
+    }
 }
 
 export default UProducts;
