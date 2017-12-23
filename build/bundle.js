@@ -24356,7 +24356,7 @@ var Image = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).call(this, props));
 
         _this.state = {
-            src: '../assets/' + _this.props.pic
+            src: '../../assets/' + _this.props.pic
         };
         return _this;
     }

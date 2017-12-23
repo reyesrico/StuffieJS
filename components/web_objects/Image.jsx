@@ -4,7 +4,7 @@ class Image extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            src: `../assets/${this.props.pic}`
+            src: `../../assets/${this.props.pic}`
         }
     }
 
