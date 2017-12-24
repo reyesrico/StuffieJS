@@ -2,6 +2,7 @@ var usersFile = require('../data/users.json');
 var uproductsFile = require('../data/uproducts.json');
 var productsFile = require('../data/products.json');
 var categoriesFile = require('../data/categories.json');
+var friendsFile = require('../data/friends.json');
 //var MongoClient = require('mongodb').MongoClient;
 
 class FileConnection {
@@ -18,6 +19,9 @@ class FileConnection {
         }
         else if (object_name === 'categories') {
             this.file = categoriesFile;
+        }
+        else if (object_name === 'friends') {
+            this.file = friendsFile;
         }
         else {
             this.file = null;
@@ -47,6 +51,10 @@ class FileConnection {
 
     Categories() {
         return this.file.categories;
+    }
+
+    Friends() {
+        return this.file.friends;
     }
 }
 

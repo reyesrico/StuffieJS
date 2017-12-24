@@ -1,0 +1,23 @@
+{
+    "friends": [
+        {
+            "mail": "reyesrico@hotmail.com",
+            "friends": [
+                {
+                    "mail": "whatismaster@yahoo.com"
+                },
+                {
+                    "mail": "otro@otro.com"
+                }
+            ]
+        },
+        {
+            "mail": "whatismaster@yahoo.com",
+            "friends": [
+                {
+                    "mail": "reyesrico@hotmail.com"
+                }
+            ]
+        }
+    ]
+}

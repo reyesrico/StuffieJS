@@ -44,6 +44,8 @@ class MenuSection extends React.Component {
       <div className="menu">
         <span className='menuProducts'><Link to='/'>Feed</Link></span>
         <hr />
+        <span className='menuProducts'><Link to='/friends'>Friends</Link></span>
+        <hr />
         <span className='menuProducts'><Link to='/products'>Products</Link></span>
         <ul>
           {

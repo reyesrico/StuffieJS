@@ -2,11 +2,18 @@
     "users": [
         {
             "mail": "reyesrico@hotmail.com",
-            "pass": "secreto"
+            "pass": "secreto",
+            "name": "Carlos"
         },
         {
             "mail": "whatismaster@yahoo.com",
-            "pass": "otro"
+            "pass": "otro",
+            "name": "Kings"
+        },
+        {
+            "mail": "otro@otro.com",
+            "pass": "otro",
+            "name": "Otro"
         }
     ]
 }
