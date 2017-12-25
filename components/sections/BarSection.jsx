@@ -25,11 +25,11 @@ class BarSection extends React.Component {
   render() {
     return (
       <div className="bar">
-        <div className="barBlock logo">
-          <Image pic='logo.png' className='barLogo' />
+        <div className="barBlock barLogo">
+          <Image pic='logo.png' className='logo' />
         </div>
         <MenuSection user={this.user} />
-        <div className="barBlock logout" onClick={this.handleLogout}>
+        <div className="barBlock barLogout" onClick={this.handleLogout}>
           <Link to='/'>Logout</Link></div>
       </div>
     );

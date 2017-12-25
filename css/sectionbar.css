@@ -1,0 +1,74 @@
+/* Bar */
+.bar {
+    border-bottom: solid 1px gray;
+    display: table;  
+    width: 100%;
+}
+
+.barBlock {
+    display: table-cell;
+    height: auto;
+    overflow: hidden;
+}
+
+.barLogo {
+    text-align: center;
+    vertical-align: middle;
+    width: 20%;
+}
+
+.logo {
+    height: 48px;
+    width: 48px;
+}
+
+.barMenu {
+    font-family: Segoe UI;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: top;
+    width: 70%;
+}
+
+.menu {
+    border-bottom: solid 8px transparent;
+    display: inline-block;
+    width: 100%;
+}
+
+.menuName {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.menuMail {
+    font-size: 10px;
+}
+
+.menuItem {
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    color: lightgray;    
+    display: inline-block;
+    width: 30%;
+}
+
+.menuItem a:visited {
+    color: white;
+}
+
+.barLogout {
+    background: gray;
+    cursor: pointer;
+    font-family: Segoe UI;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: underline;
+    vertical-align: middle;
+    width: 10%;
+}
+
+.barLogout a:visited {
+    color: white;    
+}

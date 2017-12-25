@@ -24366,13 +24366,13 @@ var BarSection = function (_React$Component) {
         { className: 'bar' },
         _react2.default.createElement(
           'div',
-          { className: 'barBlock logo' },
-          _react2.default.createElement(_Image2.default, { pic: 'logo.png', className: 'barLogo' })
+          { className: 'barBlock barLogo' },
+          _react2.default.createElement(_Image2.default, { pic: 'logo.png', className: 'logo' })
         ),
         _react2.default.createElement(_MenuSection2.default, { user: this.user }),
         _react2.default.createElement(
           'div',
-          { className: 'barBlock logout', onClick: this.handleLogout },
+          { className: 'barBlock barLogout', onClick: this.handleLogout },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/' },
@@ -24429,7 +24429,7 @@ var MenuSection = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'barBlock menuSection' },
+                { className: 'barBlock barMenu' },
                 _react2.default.createElement(
                     'div',
                     { className: 'menuName' },
