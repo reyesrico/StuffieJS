@@ -9,7 +9,8 @@ class MenuSection extends React.Component {
     render() {
         return (
             <div className='barBlock menuSection'>
-                <div className='menuName'>{this.props.user} Stuff</div>
+                <div className='menuName'>{this.props.user.name} Stuff</div>
+                <div className='menuMail'>{this.props.user.mail}</div>
                 <hr />
                 <div className='menu'>
                     <div className='menuItem'><Link to='/'>Feed</Link></div>

@@ -27,9 +27,8 @@ class BarSection extends React.Component {
       <div className="bar">
         <div className="barBlock logo">
           <Image pic='logo.png' className='barLogo' />
-          <span className='barStuffie'>Stuffie</span>
         </div>
-        <MenuSection user={this.user.name} />
+        <MenuSection user={this.user} />
         <div className="barBlock logout" onClick={this.handleLogout}>
           <Link to='/'>Logout</Link></div>
       </div>
