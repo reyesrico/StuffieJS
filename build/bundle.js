@@ -1114,13 +1114,13 @@ class UProducts {
 
     getUProduct(mail) {
         var uproduct;
-        
-        if(this.uproducts){
+
+        if (this.uproducts) {
             this.uproducts.forEach(function (up) {
                 if (up.mail === mail) {
                     uproduct = up;
                 }
-            });    
+            });
         }
         return uproduct;
     }
@@ -1130,18 +1130,29 @@ class UProducts {
         var uproduct = this.getUProduct(mail);
         var prs = this.allproducts;
 
-        if(uproduct){
+        if (uproduct) {
             uproduct.products.forEach(function (usp) {
                 products.push(prs.getProduct(usp.id));
-            });    
+            });
         }
 
         return products;
     }
 
-    isUProductRegistered(mail, productId){
-        this.uproducts.forEach(function(up, mail, productId){
-            if(up.mail === mail && up.products.include({"id": productId})){
+    getUProductsPerCategory(mail, category) {
+        var products = 0;
+        var user_products = this.getProductsperUser(mail);
+        user_products.forEach(function (prod) {
+            if (prod.category === category.id) {
+                products++;
+            }
+        }, category);
+        return products;
+    }
+
+    isUProductRegistered(mail, productId) {
+        this.uproducts.forEach(function (up, mail, productId) {
+            if (up.mail === mail && up.products.include({ "id": productId })) {
                 return true;
             }
         });
@@ -24570,37 +24581,15 @@ var ProductsSection = function (_React$Component) {
     var cats = new _Categories2.default();
     _this.categories = cats.getCategories();
 
-    var uproducts = new _UProducts2.default();
-    var username = localStorage.getItem('username');
-    if (username !== undefined) {
-      _this.user_products = uproducts.getProductsperUser(username);
-    } else {
-      _this.user_products = uproducts.getProductsperUser('reyesrico@hotmail.com');
+    _this.uproducts = new _UProducts2.default();
+    _this.username = localStorage.getItem('username');
+    if (_this.username !== undefined) {
+      _this.user_products = _this.uproducts.getProductsperUser(_this.username);
     }
-
-    _this.getUProductsPerCategory = _this.getUProductsPerCategory.bind(_this);
     return _this;
   }
 
   _createClass(ProductsSection, [{
-    key: 'getUProductsPerCategory',
-    value: function getUProductsPerCategory() {
-      var ccp = [];
-      if (this.categories && this.user_products) {
-        for (i = 0; i < this.categories.length; i++) {
-          var products = 0;
-          var categoryId = this.categories[i].id;
-          this.user_products.products.forEach(function (usp, categoryId) {
-            if (usp.category === categoryId) {
-              products++;
-            }
-          });
-          ccp.push(products);
-        }
-      }
-      return ccp;
-    }
-  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -24614,9 +24603,10 @@ var ProductsSection = function (_React$Component) {
               'li',
               { key: category.id },
               category.name,
-              ' ( )'
+              ' - ',
+              this.uproducts.getUProductsPerCategory(this.username, category)
             );
-          }, this.uproducts)
+          }, this)
         )
       );
     }
@@ -24646,9 +24636,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(4);
 
-var _FeedSection = __webpack_require__(98);
+var _Feed = __webpack_require__(98);
 
-var _FeedSection2 = _interopRequireDefault(_FeedSection);
+var _Feed2 = _interopRequireDefault(_Feed);
 
 var _Products = __webpack_require__(99);
 
@@ -24688,7 +24678,7 @@ var MainSection = function (_React$Component) {
                 _react2.default.createElement(
                     _reactRouterDom.Switch,
                     null,
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _FeedSection2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Feed2.default }),
                     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/products', component: _Products2.default }),
                     _react2.default.createElement(_reactRouterDom.Route, { path: '/products/add', component: _Product2.default }),
                     _react2.default.createElement(_reactRouterDom.Route, { path: '/friends', component: _Friends2.default })
@@ -24739,13 +24729,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var FeedSection = function (_React$Component) {
-  _inherits(FeedSection, _React$Component);
+var Feed = function (_React$Component) {
+  _inherits(Feed, _React$Component);
 
-  function FeedSection(props) {
-    _classCallCheck(this, FeedSection);
+  function Feed(props) {
+    _classCallCheck(this, Feed);
 
-    var _this = _possibleConstructorReturn(this, (FeedSection.__proto__ || Object.getPrototypeOf(FeedSection)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
 
     var uproducts = new _UProducts2.default();
     var username = localStorage.getItem('username');
@@ -24758,7 +24748,7 @@ var FeedSection = function (_React$Component) {
     return _this;
   }
 
-  _createClass(FeedSection, [{
+  _createClass(Feed, [{
     key: 'getProductsFromFriend',
     value: function getProductsFromFriend(friend) {
       var uproducts = new _UProducts2.default();
@@ -24781,7 +24771,7 @@ var FeedSection = function (_React$Component) {
           { className: 'feed' },
           _react2.default.createElement(
             'div',
-            { className: 'feedTitle' },
+            { className: 'sectionTitle' },
             'Feed'
           ),
           'No Friends Registered.'
@@ -24792,7 +24782,7 @@ var FeedSection = function (_React$Component) {
         { className: 'feed' },
         _react2.default.createElement(
           'div',
-          { className: 'feedTitle' },
+          { className: 'sectionTitle' },
           'Feed'
         ),
         _react2.default.createElement(
@@ -24819,10 +24809,10 @@ var FeedSection = function (_React$Component) {
     }
   }]);
 
-  return FeedSection;
+  return Feed;
 }(_react2.default.Component);
 
-exports.default = FeedSection;
+exports.default = Feed;
 
 /***/ }),
 /* 99 */
@@ -24882,7 +24872,7 @@ var Products = function (_React$Component) {
                     { className: 'products' },
                     _react2.default.createElement(
                         'div',
-                        { id: 'products-title' },
+                        { className: 'sectionTitle' },
                         'Products'
                     ),
                     'No Products Registered. ',
@@ -24900,7 +24890,7 @@ var Products = function (_React$Component) {
                 { className: 'products' },
                 _react2.default.createElement(
                     'div',
-                    { id: 'products-title' },
+                    { className: 'sectionTitle' },
                     'Products - ',
                     _react2.default.createElement(
                         _reactRouterDom.Link,
@@ -25195,7 +25185,7 @@ var Friends = function (_React$Component) {
                     { className: 'friends' },
                     _react2.default.createElement(
                         'div',
-                        { id: 'friends-title' },
+                        { className: 'sectionTitle' },
                         'Friends'
                     ),
                     'No Friends Registered. ',
@@ -25208,7 +25198,7 @@ var Friends = function (_React$Component) {
                 { className: 'friends' },
                 _react2.default.createElement(
                     'div',
-                    { id: 'friends-title' },
+                    { className: 'sectionTitle' },
                     'Friends'
                 ),
                 _react2.default.createElement(

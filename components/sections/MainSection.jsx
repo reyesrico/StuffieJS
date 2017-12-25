@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import FeedSection from './FeedSection.jsx';
+import FeedSection from '../Feed.jsx';
 import Products from '../Products.jsx';
 import Product from '../Product.jsx';
 import Friends from '../Friends.jsx';

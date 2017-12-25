@@ -85,21 +85,34 @@
 
 .mainSection {
     display: inline-block;
-    width: 70%;
+    width: 65%;
 }
 
 .productsSection {
-    background-color: lightgray;
+    background-color: white;
+    border-right: solid 2px gray;
     float: left;
     width: 20%;
 }
 
 .productsSection ul{
-    padding-left: 16px;
+    list-style-type: none;  
+    margin: 0;  
+    padding: 0;
 }
 
 .productsSection ul li{
-    text-indent: -4px;
+    background: lightgray;
+    border-bottom: solid 2px black;
+    color: black;
+    margin-bottom: 4px;
+    text-indent: 0px;
+}
+
+.sectionTitle {
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-weight: bolder;
 }
 
 .apps {

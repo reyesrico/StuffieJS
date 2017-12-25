@@ -10,33 +10,11 @@ class ProductsSection extends React.Component {
     var cats = new Categories();
     this.categories = cats.getCategories();
 
-    var uproducts = new UProducts();
-    var username = localStorage.getItem('username');
-    if (username !== undefined) {
-      this.user_products = uproducts.getProductsperUser(username);
+    this.uproducts = new UProducts();
+    this.username = localStorage.getItem('username');
+    if (this.username !== undefined) {
+      this.user_products = this.uproducts.getProductsperUser(this.username);
     }
-    else {
-      this.user_products = uproducts.getProductsperUser('reyesrico@hotmail.com');
-    }
-
-    this.getUProductsPerCategory = this.getUProductsPerCategory.bind(this);
-  }
-
-  getUProductsPerCategory() {
-    var ccp = [];
-    if (this.categories && this.user_products) {
-      for (i = 0; i < this.categories.length; i++) {
-        var products = 0;
-        var categoryId = this.categories[i].id;
-        this.user_products.products.forEach(function (usp, categoryId) {
-          if (usp.category === categoryId) {
-            products++;
-          }
-        });
-        ccp.push(products);
-      }
-    }
-    return ccp;
   }
 
   render() {
@@ -46,9 +24,9 @@ class ProductsSection extends React.Component {
           {
             this.categories.map(function (category) {
               return <li key={category.id}>
-                {category.name} ( )
-                </li>;
-            }, this.uproducts)
+                {category.name} - {this.uproducts.getUProductsPerCategory(this.username, category)}
+              </li>;
+            }, this)
           }
         </ul>
       </div>

@@ -18,16 +18,16 @@ class Products extends React.Component {
     render() {
         if (!(this.user_products && this.user_products.length)) {
             return (
-                <div className="products">
-                    <div id="products-title">Products</div>
+                <div className='products'>
+                    <div className='sectionTitle'>Products</div>
                     No Products Registered. <br />
                     Register your first product <Link to='/products/add'>here.</Link>
                 </div>
             );
         }
         return (
-            <div className="products">
-                <div id="products-title">Products - <Link to='/products/add'>Add Product</Link></div>
+            <div className='products'>
+                <div className='sectionTitle'>Products - <Link to='/products/add'>Add Product</Link></div>
                 <ul>
                     {
                         this.user_products.map(function (product) {

@@ -1,9 +1,9 @@
 import React from 'react';
-import UProducts from '../../models/UProducts.jsx';
-import FriendsModel from '../../models/Friends.jsx';
-import Users from '../../models/Users.jsx';
+import UProducts from '../models/UProducts.jsx';
+import FriendsModel from '../models/Friends.jsx';
+import Users from '../models/Users.jsx';
 
-class FeedSection extends React.Component {
+class Feed extends React.Component {
   constructor(props) {
     super(props);
     var uproducts = new UProducts();
@@ -29,14 +29,14 @@ class FeedSection extends React.Component {
     if (!(this.friends && this.friends.length)) {
       return (
         <div className="feed">
-          <div className="feedTitle">Feed</div>
+          <div className="sectionTitle">Feed</div>
           No Friends Registered.
         </div>
       );
     }
     return (
       <div className="feed">
-        <div className="feedTitle">Feed</div>
+        <div className="sectionTitle">Feed</div>
         <div className="feedInfo">
           {
             this.friends.map(function (friend) {
@@ -56,4 +56,4 @@ class FeedSection extends React.Component {
   }
 }
 
-export default FeedSection;
+export default Feed;

@@ -17,16 +17,16 @@ class Friends extends React.Component {
     render() {
         if (!(this.user_friends && this.user_friends.length)) {
             return (
-                <div className="friends">
-                    <div id="friends-title">Friends</div>
+                <div className='friends'>
+                    <div className='sectionTitle'>Friends</div>
                     No Friends Registered. <br />
                     Search for your friends.
                 </div>
             );
         }
         return (
-            <div className="friends">
-                <div id="friends-title">Friends</div>
+            <div className='friends'>
+                <div className='sectionTitle'>Friends</div>
                 <ul>
                     {
                         this.user_friends.map(function (friend) {

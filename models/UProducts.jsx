@@ -10,13 +10,13 @@ class UProducts {
 
     getUProduct(mail) {
         var uproduct;
-        
-        if(this.uproducts){
+
+        if (this.uproducts) {
             this.uproducts.forEach(function (up) {
                 if (up.mail === mail) {
                     uproduct = up;
                 }
-            });    
+            });
         }
         return uproduct;
     }
@@ -26,18 +26,29 @@ class UProducts {
         var uproduct = this.getUProduct(mail);
         var prs = this.allproducts;
 
-        if(uproduct){
+        if (uproduct) {
             uproduct.products.forEach(function (usp) {
                 products.push(prs.getProduct(usp.id));
-            });    
+            });
         }
 
         return products;
     }
 
-    isUProductRegistered(mail, productId){
-        this.uproducts.forEach(function(up, mail, productId){
-            if(up.mail === mail && up.products.include({"id": productId})){
+    getUProductsPerCategory(mail, category) {
+        var products = 0;
+        var user_products = this.getProductsperUser(mail);
+        user_products.forEach(function (prod) {
+            if (prod.category === category.id) {
+                products++;
+            }
+        }, category);
+        return products;
+    }
+
+    isUProductRegistered(mail, productId) {
+        this.uproducts.forEach(function (up, mail, productId) {
+            if (up.mail === mail && up.products.include({ "id": productId })) {
                 return true;
             }
         });
