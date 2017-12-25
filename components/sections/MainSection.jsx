@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import FeedSection from '../Feed.jsx';
 import Products from '../Products.jsx';
-import Product from '../Product.jsx';
 import Friends from '../Friends.jsx';
 
 class MainSection extends React.Component {
@@ -15,8 +14,7 @@ class MainSection extends React.Component {
             <div className='mainSection'>
                 <Switch>
                     <Route exact path='/' component={FeedSection} />
-                    <Route exact path='/products' component={Products} />
-                    <Route path='/products/add' component={Product} />
+                    <Route path='/products' component={Products} />
                     <Route path='/friends' component={Friends} />
                 </Switch>
             </div>

@@ -23,9 +23,9 @@ class ProductsSection extends React.Component {
         <ul>
           {
             this.categories.map(function (category) {
-              return <li key={category.id}>
-                {category.name} - {this.uproducts.getUProductsPerCategory(this.username, category)}
-              </li>;
+              return <li key={category.id}><Link to={`/products/category/${category.id}`}>
+                {category.name} - {this.uproducts.getUProductsPerCategory(this.username, category).length}
+              </Link></li>;
             }, this)
           }
         </ul>

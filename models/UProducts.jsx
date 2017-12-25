@@ -36,11 +36,11 @@ class UProducts {
     }
 
     getUProductsPerCategory(mail, category) {
-        var products = 0;
+        var products = [];
         var user_products = this.getProductsperUser(mail);
         user_products.forEach(function (prod) {
             if (prod.category === category.id) {
-                products++;
+                products.push(prod);
             }
         }, category);
         return products;
