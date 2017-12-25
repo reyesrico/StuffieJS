@@ -44,7 +44,7 @@ class Login extends React.Component {
             return (<Redirect to='/' />);
         }
         return (
-            <div>
+            <div className='stuffieLogin'>
                 <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
                     <TextField

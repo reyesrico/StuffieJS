@@ -1,15 +1,66 @@
 .stuffie {
     display: inline-block;
+    font-family: Segoe UI;
+    width: 100%;
+}
+
+.stuffieInfo {
+    height: auto;
+    position: relative;
+    overflow: auto;
     width: 100%;
 }
 
 .stuffieLogin {
     float: left;
+    height: auto;
     width: 50%;
 }
 
 .stuffieRegister {
     background-color: lightgray;
     float: right;
+    height: auto;
     width: 50%;    
+}
+
+.welcomeBar {
+    border-bottom: solid 4px gray;
+    text-align: center;
+}
+
+.bigLogo {
+    display: inline-block;
+    height: 48px;
+    margin-right: 16px;
+    width: 48px;
+}
+
+.stuffieTitle {
+    color: black;
+    display: inline-block;
+    font-size: 48px;
+    font-weight: bolder;
+    margin-right: 82px;
+}
+
+.stuffieSlogan {
+    color: gray;
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.stuffieNews {
+    background: rgb(244, 208, 63);
+    color: black;
+    font-weight: bolder;
+    height: 28px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer {
+    text-align: center;
+    width: 100%;
 }

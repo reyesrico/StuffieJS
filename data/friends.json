@@ -1,6 +1,17 @@
 {
     "friends": [
         {
+            "mail": "test@test.com",
+            "friends": [
+                {
+                    "mail": "reyesrico@hotmail.com"
+                },
+                {
+                    "mail": "whatismaster@yahoo.com"
+                }
+            ]
+        },        
+        {
             "mail": "reyesrico@hotmail.com",
             "friends": [
                 {

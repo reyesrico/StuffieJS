@@ -1,4 +1,6 @@
 import React from 'react';
+import WelcomeBar from './WelcomeBar.jsx';
+import News from './News.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import Footer from './Footer.jsx';
@@ -11,12 +13,13 @@ class Welcome extends React.Component {
     render() {
         return (
             <div className='stuffie'>
-                <div className='stuffieLogin'>                
+                <WelcomeBar />
+                <News />
+                <div className='stuffieInfo'>
                     <Login />
-                </div>
-                <div className='stuffieRegister'>
                     <Register />
                 </div>
+                <Footer />
             </div>
         );
     }

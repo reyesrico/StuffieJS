@@ -48,28 +48,26 @@ class Register extends React.Component {
             return (<Redirect to='/' />);
         }
         return (
-            <div>
+            <div className='stuffieRegister'>
                 <h1>Register</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className='registerMail'>
-                        <span>Mail:</span>
                         <TextField
                             type="mail"
                             name="username"
                             value={this.state.username}
-                            hintText="Enter your Username"
+                            hintText="Email"
                             onChange={this.handleChange} />
                     </div>
                     <div className='registerPass'>
-                        <span>Password:</span>
                         <TextField
                             type="password"
                             name="password"
                             value={this.state.password}
-                            hintText="Enter your Password"
+                            hintText="New Password"
                             onChange={this.handleChange} />
                     </div>
-                    <input type="submit" value="Register" />
+                    <input type="submit" value="Register" disabled />
                 </form>
             </div>
         );

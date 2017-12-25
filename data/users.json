@@ -1,6 +1,11 @@
 {
     "users": [
         {
+            "mail": "test@test.com",
+            "pass": "1234",
+            "name": "Test User"
+        },
+        {
             "mail": "reyesrico@hotmail.com",
             "pass": "secreto",
             "name": "Carlos"

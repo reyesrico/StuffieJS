@@ -84,7 +84,7 @@ class Product extends React.Component {
                         onChange={this.handleChange} />                        
                     <DropDown
                         values={this.categories} />
-                    <input type="submit" value="AddProduct" />
+                    <input type="submit" value="AddProduct" disabled />
                 </form>
             </div>
         );
