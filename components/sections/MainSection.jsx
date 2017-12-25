@@ -12,7 +12,7 @@ class MainSection extends React.Component {
 
     render() {
         return (
-            <div className='mainsection'>
+            <div className='mainSection'>
                 <Switch>
                     <Route exact path='/' component={FeedSection} />
                     <Route exact path='/products' component={Products} />

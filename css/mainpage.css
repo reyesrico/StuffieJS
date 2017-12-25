@@ -1,8 +1,15 @@
 /* Bar */
-.bar {    
+.bar {
     background-color: lightgrey;
-    display: inline-block;    
+    border-bottom: solid 1px gray;
+    display: table;  
     width: 100%;
+}
+
+.barBlock {
+    display: table-cell;
+    height: auto;
+    overflow: hidden;
 }
 
 .barLogo {
@@ -18,55 +25,86 @@
 }
 
 .logo {
-    float: left;
+    width: 20%;
+}
+
+.menuSection {
+    font-family: Segoe UI;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: top;
+    width: 70%;
+}
+
+.menu {
+    border-bottom: solid 8px lightgray;
+    display: inline-block;
+    width: 100%;
+}
+
+.menuName {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.menuItem {
+    background-color: black;
+    color: lightgray;    
+    display: inline-block;
     width: 30%;
 }
 
-.stuff {
-    display: inline-block;
-    width: 60%;
+.menuItem a:visited {
+    color: white;
 }
 
 .logout {
+    background: gray;
     cursor: pointer;
-    float: right;
     font-family: Segoe UI;
     font-size: 12px;
+    text-align: center;
     text-decoration: underline;
     width: 10%;
 }
 
+.logout a:visited {
+    color: white;    
+}
+
 /* Content */ 
 .content {
+    border-top-color: gray;
+    border-top-style: solid;
     display: inline-block;
     font-family: Segoe UI;
     font-size: 12px;
     width: 100%;
 }
 
-.mainsection {
+.mainSection {
     display: inline-block;
     width: 70%;
 }
 
-.menu {
+.productsSection {
     background-color: lightgray;
     float: left;
-    width: 15%;
+    width: 20%;
 }
 
-.menu ul{
+.productsSection ul{
     padding-left: 16px;
 }
 
-.menu ul li{
+.productsSection ul li{
     text-indent: -4px;
 }
 
 .apps {
     background-color: lightgray;
     float: right;
-    width: 15%;
+    width: 10%;
 }
 
 /* Footer */
