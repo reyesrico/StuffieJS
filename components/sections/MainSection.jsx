@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import FeedSection from '../Feed.jsx';
 import Products from '../Products.jsx';
 import Friends from '../Friends.jsx';
+import Tickets from '../Tickets.jsx';
 
 class MainSection extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class MainSection extends React.Component {
                     <Route exact path='/' component={FeedSection} />
                     <Route path='/products' component={Products} />
                     <Route path='/friends' component={Friends} />
+                    <Route path='/tickets' component={Tickets} />
                 </Switch>
             </div>
         );
