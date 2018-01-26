@@ -1,11 +1,5 @@
 import * as React from 'react';
-import { render } from 'react-dom';
-import { Redirect } from 'react-router-dom';
 import * as Tesseract from 'tesseract.js';
-// import axios, { post } from 'axios';
-import TextField from './web_objects/TextField.jsx';
-// import express from 'express';
-// import multer from 'multer';
 
 interface ITicketsState {
   fileName: any,
@@ -35,9 +29,6 @@ class Tickets extends React.Component<{}, ITicketsState> {
   handleSubmit(event: any) {
     event.stopPropagation();
     event.preventDefault();
-
-    //var file = this.state.fileName;
-    //var language = 'eng';
 
     Tesseract.recognize(this.state.fileName, 'eng')
       .progress(this.progressUpdate)

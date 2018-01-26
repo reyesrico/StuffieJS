@@ -24823,8 +24823,6 @@ var Tickets = /** @class */ (function (_super) {
     Tickets.prototype.handleSubmit = function (event) {
         event.stopPropagation();
         event.preventDefault();
-        //var file = this.state.fileName;
-        //var language = 'eng';
         Tesseract.recognize(this.state.fileName, 'eng')
             .progress(this.progressUpdate)
             .then(this.result);
