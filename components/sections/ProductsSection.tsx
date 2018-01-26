@@ -4,7 +4,7 @@ import Categories from '../../models/Categories';
 import UProducts from '../../models/UProducts';
 
 class ProductsSection extends React.Component {
-  
+
   categories: any;
   uproducts: any;
   username: string;
@@ -26,15 +26,15 @@ class ProductsSection extends React.Component {
   render() {
     return (
       <div className="productsSection">
-        <ul>
-          {
-            this.categories.map(function (category: any) {
-              return <li key={category.id}><Link to={`/products/category/${category.id}`}>
+        {
+          this.categories.map(function (category: any) {
+            return <div className="productsSectionItem" key={category.id}>
+              <Link to={`/products/category/${category.id}`}>
                 {category.name} - {this.uproducts.getUProductsPerCategory(this.username, category).length}
-              </Link></li>;
-            }, this)
-          }
-        </ul>
+              </Link>
+            </div>;
+          }, this)
+        }
       </div>
     );
   }

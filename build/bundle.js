@@ -24341,14 +24341,13 @@ var ProductsSection = /** @class */ (function (_super) {
         return _this;
     }
     ProductsSection.prototype.render = function () {
-        return (React.createElement("div", { className: "productsSection" },
-            React.createElement("ul", null, this.categories.map(function (category) {
-                return React.createElement("li", { key: category.id },
-                    React.createElement(react_router_dom_1.Link, { to: "/products/category/" + category.id },
-                        category.name,
-                        " - ",
-                        this.uproducts.getUProductsPerCategory(this.username, category).length));
-            }, this))));
+        return (React.createElement("div", { className: "productsSection" }, this.categories.map(function (category) {
+            return React.createElement("div", { className: "productsSectionItem", key: category.id },
+                React.createElement(react_router_dom_1.Link, { to: "/products/category/" + category.id },
+                    category.name,
+                    " - ",
+                    this.uproducts.getUProductsPerCategory(this.username, category).length));
+        }, this)));
     };
     return ProductsSection;
 }(React.Component));
@@ -24485,7 +24484,7 @@ var Products = /** @class */ (function (_super) {
         return _super.call(this, props) || this;
     }
     Products.prototype.render = function () {
-        return (React.createElement("div", null,
+        return (React.createElement("div", { className: "productsSwitch" },
             React.createElement(react_router_dom_1.Switch, null,
                 React.createElement(react_router_dom_1.Route, { exact: true, path: '/products', component: MyProducts_1.default }),
                 React.createElement(react_router_dom_1.Route, { path: '/products/category/:number', component: ProductsCategory_1.default }),
@@ -24584,6 +24583,11 @@ var ProductsCategory = /** @class */ (function (_super) {
         }
         return _this;
     }
+    ProductsCategory.prototype.componentWillReceiveProps = function (props) {
+        var categoryId = parseInt(props.match.params.number);
+        var cat = new Categories_1.default();
+        this.category = cat.getCategory(categoryId);
+    };
     ProductsCategory.prototype.render = function () {
         if (!(this.user_products && this.user_products.length)) {
             return (React.createElement("div", { className: 'products' },
@@ -24647,11 +24651,11 @@ var Product = /** @class */ (function (_super) {
             _this.user_products = _this.uproducts.getProductsperUser('reyesrico@hotmail.com');
         }
         _this.state = {
-            name: _this.state.name,
-            productName: _this.state.productName,
-            productDescription: _this.state.productDescription,
-            category: _this.state.category,
-            redirectToNewPage: _this.state.redirectToNewPage
+            name: '',
+            productName: '',
+            productDescription: '',
+            category: '',
+            redirectToNewPage: false
         };
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);

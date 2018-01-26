@@ -11,13 +11,12 @@ class Products extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="productsSwitch">
                 <Switch>
                     <Route exact path='/products' component={MyProducts} />
                     <Route path='/products/category/:number' component={ProductsCategory} />
                     <Route path='/products/add' component={Product} />
                 </Switch>
-
             </div>
         );
     }

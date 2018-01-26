@@ -22,6 +22,12 @@ class ProductsCategory extends React.Component {
         }
     }
 
+    componentWillReceiveProps(props: any){
+        var categoryId = parseInt(props.match.params.number);
+        var cat = new Categories();
+        this.category = cat.getCategory(categoryId);        
+    }
+
     render() {
         if (!(this.user_products && this.user_products.length)) {
             return (

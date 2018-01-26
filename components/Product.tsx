@@ -42,11 +42,11 @@ class Product extends React.Component<IProductProps, IProductState> {
         }
 
         this.state = {
-            name: this.state.name,
-            productName: this.state.productName,
-            productDescription: this.state.productDescription,
-            category: this.state.category,
-            redirectToNewPage: this.state.redirectToNewPage
+            name: '',
+            productName: '',
+            productDescription: '',
+            category: '',
+            redirectToNewPage: false
         }
 
         this.handleChange = this.handleChange.bind(this);
