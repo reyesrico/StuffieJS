@@ -8,101 +8,102 @@ import TextField from './web_objects/TextField.jsx';
 // import multer from 'multer';
 
 interface ITicketsState {
-  fileName: string,
-  progressValue: number
+  fileName: any,
+  progressValue: number,
+  textFromImage: string
 }
 
 class Tickets extends React.Component<{}, ITicketsState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      fileName: '',
-      progressValue: 0
+      fileName: null,
+      progressValue: 0,
+      textFromImage: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.fileUpload = this.fileUpload.bind(this);
-
-    // this.app = express();
-    // const upload_path = path.join(__dirname, '../tickets/');
-    // const multer_upload = multer({ dest: upload_path }).any();
-    // this.upload = multer({multer_upload});
+    this.progressUpdate = this.progressUpdate.bind(this);
+    this.result = this.result.bind(this);
   }
 
   handleChange(event: any) {
-    // const fullPath = event.target.value;
-    // if (fullPath) {
-    //   var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-    //   var file = fullPath.substring(startIndex);
-    //   if (file.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-    //     file = file.substring(1);
-    //   }
-    // }
-
-    // this.setState({ fileName: file }, function () {
-    //   alert("fileName = " + this.state.fileName);
-    // });
-    this.setState({
-      fileName: event.target.files[0]
-    });
+    this.setState({ fileName: event.target.files[0] });
   }
-
-  // fileUpload(file) {
-  //   const url = require('path').resolve(__dirname, 'tickets');
-  //   const formData = new FormData();
-  //   formData.append('file', file);
-  //   const config = {
-  //     headers: {
-  //       'content-type': 'multipart/form-data'
-  //     }
-  //   }
-  //   return post(url, formData, config);
-  // }
 
   handleSubmit(event: any) {
+    event.stopPropagation();
     event.preventDefault();
-    alert("getting image");
-    // const image = require('path').resolve(__dirname, this.state.fileName);
-    // alert("image = " + image);
 
-    alert("equis: " + this.state.fileName);
-    // this.fileUpload(this.state.fileName).then((response) => {
-    //   alert("file uploaded");
-    // })
+    //var file = this.state.fileName;
+    //var language = 'eng';
 
-    alert("Tesseract: " + Tesseract);
-
-    const image = require('path').resolve(__dirname, 'tickets/text3.png');
-    Tesseract.detect(image)
-      .progress(function (info) {
-        console.log(info);
-      })
-      .then(function (data) {
-        console.log('done', data);
-      })
-      .finally(e => {
-        console.log('finally\n');
-      });
-
-    alert("finished");
+    Tesseract.recognize(this.state.fileName, 'eng')
+      .progress(this.progressUpdate)
+      .then(this.result)
   }
 
+  result(res: any) {
+    console.log('result was:', res)
+    this.progressUpdate({ status: 'done', data: res });
+  }
+
+
+  progressUpdate(packet: any) {
+    var log = document.getElementById('log');
+    var line = document.createElement('div');
+    var statusInfo = document.getElementById('statusInfo');
+    var span = document.getElementById('info');
+
+    if ('progress' in packet) {
+      var progress = document.querySelector('progress');
+      progress.value = packet.progress;
+      progress.max = 1;
+      span.innerHTML = `Analyzing file: ${this.state.fileName.name}...`;
+    }
+
+
+    if (packet.status == 'done') {
+      if (line.hasChildNodes()) {
+        line.removeChild(line.firstChild);
+      }
+      var pre = document.createElement('pre');
+      this.setState({ textFromImage: packet.data.text });
+
+      pre.appendChild(document.createTextNode(packet.data.text));
+      line.innerHTML = '';
+      line.appendChild(pre);
+
+      span.innerHTML = 'Finished!'
+    }
+
+    log.insertBefore(line, log.firstChild);
+  }
 
   render() {
     return (
       <div className="tickets">
         <h1>Tickets</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type='file'
-            id='fileId'
-            name='fileName'
-            onChange={this.handleChange} />
-          <hr />
-          <input type="submit" value="Analyze" disabled={!this.state.fileName} />
-        </form>
-        {/* <progress value={this.progressValue} max="100"></progress> */}
+        <div className="ticketsForm">
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type='file'
+              id='fileId'
+              name='fileName'
+              onChange={this.handleChange} />
+            <hr />
+            <input type="submit" value="Analyze" disabled={!this.state.fileName} accept=".jpg, .jpeg, .png" />
+          </form>
+        </div>
+        <hr />
+        <div id="status" className="ticketsStatus">
+          <progress value={this.state.progressValue} max="100"></progress>
+          <div id="statusInfo" className="statusInfo">
+            Status: <span id="info" />
+          </div>
+          <div id="log" />
+        </div>
       </div>
     );
   }
