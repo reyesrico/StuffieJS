@@ -2620,7 +2620,7 @@ var Image = /** @class */ (function (_super) {
     function Image(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
-            src: "assets/" + _this.props.pic
+            src: "src/assets/" + _this.props.pic
         };
         return _this;
     }

@@ -13,7 +13,7 @@ class Image extends React.Component<IImageProps, IImageState> {
     constructor(props: any){
         super(props);
         this.state = {
-            src: `assets/${this.props.pic}`
+            src: `src/assets/${this.props.pic}`
         }
     }
 

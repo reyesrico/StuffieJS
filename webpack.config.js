@@ -2,10 +2,10 @@ var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'build');
-var APP_DIR = path.resolve(__dirname, 'components');
+//var APP_DIR = path.resolve(__dirname, 'components');
 
 var config = {
-  entry: "./components/Stuffie.tsx",
+  entry: "./src/components/Stuffie.tsx",
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'

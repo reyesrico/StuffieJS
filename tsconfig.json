@@ -8,10 +8,10 @@
         "jsx": "react"
     },
     "include": [
-        "./components/*",
-        "./components/sections/*",
-        "./components/web_objects/*",
-        "./connection/*",
-        "./models/*"
+        "./src/components/*",
+        "./src/components/sections/*",
+        "./src/components/web_objects/*",
+        "./src/connection/*",
+        "./src/models/*"
     ]
 }
