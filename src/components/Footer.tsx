@@ -5,7 +5,7 @@ class Footer extends React.Component {
         return (
             <div className="footer">
                 <hr />
-                Stuffie&trade; is a platform coded and registerd by Carlos Reyes-Rico.
+                Stuffie&trade; is a platform coded and registered by Carlos Reyes-Rico.
             </div>
         );
     }

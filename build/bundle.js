@@ -2658,7 +2658,7 @@ var Footer = /** @class */ (function (_super) {
     Footer.prototype.render = function () {
         return (React.createElement("div", { className: "footer" },
             React.createElement("hr", null),
-            "Stuffie\u2122 is a platform coded and registerd by Carlos Reyes-Rico."));
+            "Stuffie\u2122 is a platform coded and registered by Carlos Reyes-Rico."));
     };
     return Footer;
 }(React.Component));
