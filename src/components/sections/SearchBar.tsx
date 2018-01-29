@@ -58,7 +58,7 @@ class Table extends React.Component<ITableProps, {}>{
         var searchterm = this.props.searchTerm; // need this or it doesnt work
         var key = '';
         var title = this.props.title;
-        var index = 0;
+        var index = 1;
 
         // Update row 
         this.props.data.forEach(function (row: any) {
@@ -83,10 +83,8 @@ class Table extends React.Component<ITableProps, {}>{
             //rowsTitle.push(<TableTitle title={title} key={"tt" + index} />);
             if (searchterm != '')
                 rowsTitle.push(<SearchMatch match={key} key={"sm" + index} title={title}/>);
-            //rowsTitle.push(<TableData data={row.tags} key={"td" + index} />);  //row.content
-            rowsTitle.push(<hr key={index}/>);
+            //rowsTitle.push(<TableData data={row.tags} key={"td" + index} />);  //row.content            
             index++;
-
         }, title, index);
 
         // Then render all. Render using childs. Send them prop.title and prop.data

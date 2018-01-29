@@ -77,6 +77,14 @@
     z-index: 2;    
 }
 
+.searchMatch {
+    border-bottom: 1px solid darkgray;
+}
+
+.searchMatch:last-child {
+    border-bottom: none;
+}
+
 .barLogout {
     background: gray;
     cursor: pointer;
