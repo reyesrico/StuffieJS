@@ -8,9 +8,10 @@
                 },
                 {
                     "mail": "whatismaster@yahoo.com"
-                }
-            ]
-        },        
+                }                
+            ],
+            "tags": "reyesrico reyesrico@hotmail.com whatismaster whatismaster@yahoo.com"
+        },
         {
             "mail": "reyesrico@hotmail.com",
             "friends": [
@@ -20,7 +21,8 @@
                 {
                     "mail": "otro@otro.com"
                 }
-            ]
+            ],
+            "tags": "otro otro@otro.com whatismaster whatismaster@yahoo.com"
         },
         {
             "mail": "whatismaster@yahoo.com",
@@ -28,7 +30,8 @@
                 {
                     "mail": "reyesrico@hotmail.com"
                 }
-            ]
+            ],
+            "tags": "reyesrico reyesrico@hotmail.com"
         }
     ]
 }

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import TextField from '../web_objects/TextField';
+import SearchBar from './SearchBar';
 
 interface IMenuSectionProps {
     user: any;
@@ -8,6 +10,12 @@ interface IMenuSectionProps {
 class MenuSection extends React.Component<IMenuSectionProps, {}> {
     constructor(props: any) {
         super(props);
+
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(event: any){
+
     }
 
     render() {
@@ -20,6 +28,10 @@ class MenuSection extends React.Component<IMenuSectionProps, {}> {
                     <div className='menuItem'><Link to='/'>Feed</Link></div>
                     <div className='menuItem'><Link to='/friends'>Friends</Link></div>
                     <div className='menuItem'><Link to='/products'>Products</Link></div>
+                </div>
+                <hr />
+                <div className='searchBarGroup'>
+                <SearchBar />
                 </div>
             </div>
         );

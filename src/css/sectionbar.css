@@ -58,6 +58,25 @@
     color: white;
 }
 
+.searchBar input{
+    border: 2px solid darkgray;
+    color: darkgray;
+    font-family: Segoe UI;
+    font-weight: bolder;    
+    margin-bottom: 8px;
+    width: 90%;
+}
+
+.searchTable {
+    background: white;
+    box-shadow: 2px 2px darkgray;
+    font-size: 12px;
+    margin-left: 12px;
+    position: absolute;
+    width: 65%;
+    z-index: 2;    
+}
+
 .barLogout {
     background: gray;
     cursor: pointer;
