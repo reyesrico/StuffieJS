@@ -46,22 +46,22 @@ class SearchMatch extends React.Component<ISearchMatchProps, {}>{
 
 interface ITableProps {
     searchTerm: any;
-    data: any;
-    title: string
+    data: any[];
+    titles: any[]
 }
 
 class Table extends React.Component<ITableProps, {}>{
-    render() {
+
+    addData(data: any, title: string) {
         // We need to get each row and store it in an array
         var rowsTitle = new Array();
         var search = [];
         var searchterm = this.props.searchTerm; // need this or it doesnt work
         var key = '';
-        var title = this.props.title;
         var index = 1;
 
         // Update row 
-        this.props.data.forEach(function (row: any) {
+        data.forEach(function (row: any) {
             // row.title subtited by this.props.title
             if (title.toLowerCase().indexOf(searchterm.toLowerCase()) === -1 &&
                 row.tags.toLowerCase().indexOf(searchterm.toLowerCase()) === -1
@@ -78,11 +78,10 @@ class Table extends React.Component<ITableProps, {}>{
                 key = title.toLowerCase();
             }
 
-
             // rowsTitle pushing Table and Search info
             //rowsTitle.push(<TableTitle title={title} key={"tt" + index} />);
             if (searchterm != '')
-                rowsTitle.push(<SearchMatch match={key} key={"sm" + index} title={title}/>);
+                rowsTitle.push(<SearchMatch match={key} key={"sm" + index} title={title} />);
             //rowsTitle.push(<TableData data={row.tags} key={"td" + index} />);  //row.content            
             index++;
         }, title, index);
@@ -91,6 +90,24 @@ class Table extends React.Component<ITableProps, {}>{
         var finalRows = [];
         if (searchterm != '') {
             finalRows = rowsTitle;
+        }
+
+        return finalRows;
+    }
+
+    render() {
+        var finalRows = new Array();
+        var titles = this.props.titles;
+        var data = this.props.data;
+
+        for (var i = 0; i < data.length; i++) {
+            var elementData = this.addData(data[i], titles[i]);
+            if (finalRows.length === 0) {
+                finalRows = elementData;
+            }
+            else {
+                finalRows.concat(elementData, finalRows);
+            }
         }
 
         return (
@@ -148,13 +165,23 @@ class SearchBarSection extends React.Component<{}, ISearchBarState>{
     }
 
     render() {
-        var conn = new FileConnection('friends');
-        var friends = conn.Friends();
+
+        /*
+            To add a new Search to a JSON file
+            1. Add File Connection
+            2. Add Objects to Data Array
+            3. Add Title string to Titles Array.
+        */
+        var friends = new FileConnection('friends').Friends();
+        var products = new FileConnection('products').Products();
+
+        var DATA = new Array(friends, products);
+        var TITLES = new Array("friends", "products");
 
         return (
             <div className="searchBar">
                 <Search searchTerm={this.state.filterText} userInput={this.handleUserInput} />
-                <Table searchTerm={this.state.filterText} data={friends} title="friends" />
+                <Table searchTerm={this.state.filterText} data={DATA} titles={TITLES} />
             </div>
         );
     }

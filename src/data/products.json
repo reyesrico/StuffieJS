@@ -4,37 +4,43 @@
             "id": 1,
             "name": "Harry Potter",
             "description": "description product 1",
-            "category": 1
+            "category": 1,
+            "tags": "Harry Potter"
         },
         {
             "id": 2,
             "name": "Star Wars Episode VII",
             "description": "description product 2",
-            "category": 2
+            "category": 2,
+            "tags": "Star Wars Episode VII"
         },
         {
             "id": 3,
             "name": "Dell XPS 13",
             "description": "description product 3",
-            "category": 3
+            "category": 3,
+            "tags": "Dell XPS 13"            
         },
         {
             "id": 4,
             "name": "Nintendo Switch",
             "description": "description product 4",
-            "category": 2
+            "category": 2,
+            "tags": "Nintendo Switch"            
         },
         {
             "id": 5,
             "name": "Apple TV",
             "description": "description product 5",
-            "category": 2
+            "category": 2,
+            "tags": "Apple TV"            
         },
         {
             "id": 6,
             "name": "Snowboard",
             "description": "description product 6",
-            "category": 9
+            "category": 9,
+            "tags": "Snowboard"            
         }
     ]
 }

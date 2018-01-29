@@ -24071,7 +24071,7 @@ module.exports = {"uproducts":[{"mail":"test@test.com","products":[{"id":1},{"id
 /* 94 */
 /***/ (function(module, exports) {
 
-module.exports = {"products":[{"id":1,"name":"Harry Potter","description":"description product 1","category":1},{"id":2,"name":"Star Wars Episode VII","description":"description product 2","category":2},{"id":3,"name":"Dell XPS 13","description":"description product 3","category":3},{"id":4,"name":"Nintendo Switch","description":"description product 4","category":2},{"id":5,"name":"Apple TV","description":"description product 5","category":2},{"id":6,"name":"Snowboard","description":"description product 6","category":9}]}
+module.exports = {"products":[{"id":1,"name":"Harry Potter","description":"description product 1","category":1,"tags":"Harry Potter"},{"id":2,"name":"Star Wars Episode VII","description":"description product 2","category":2,"tags":"Star Wars Episode VII"},{"id":3,"name":"Dell XPS 13","description":"description product 3","category":3,"tags":"Dell XPS 13"},{"id":4,"name":"Nintendo Switch","description":"description product 4","category":2,"tags":"Nintendo Switch"},{"id":5,"name":"Apple TV","description":"description product 5","category":2,"tags":"Apple TV"},{"id":6,"name":"Snowboard","description":"description product 6","category":9,"tags":"Snowboard"}]}
 
 /***/ }),
 /* 95 */
@@ -24373,16 +24373,15 @@ var Table = /** @class */ (function (_super) {
     function Table() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Table.prototype.render = function () {
+    Table.prototype.addData = function (data, title) {
         // We need to get each row and store it in an array
         var rowsTitle = new Array();
         var search = [];
         var searchterm = this.props.searchTerm; // need this or it doesnt work
         var key = '';
-        var title = this.props.title;
         var index = 1;
         // Update row 
-        this.props.data.forEach(function (row) {
+        data.forEach(function (row) {
             // row.title subtited by this.props.title
             if (title.toLowerCase().indexOf(searchterm.toLowerCase()) === -1 &&
                 row.tags.toLowerCase().indexOf(searchterm.toLowerCase()) === -1)
@@ -24408,6 +24407,21 @@ var Table = /** @class */ (function (_super) {
         var finalRows = [];
         if (searchterm != '') {
             finalRows = rowsTitle;
+        }
+        return finalRows;
+    };
+    Table.prototype.render = function () {
+        var finalRows = new Array();
+        var titles = this.props.titles;
+        var data = this.props.data;
+        for (var i = 0; i < data.length; i++) {
+            var elementData = this.addData(data[i], titles[i]);
+            if (finalRows.length === 0) {
+                finalRows = elementData;
+            }
+            else {
+                finalRows.concat(elementData, finalRows);
+            }
         }
         return (React.createElement("div", { className: "searchTable" }, finalRows));
     };
@@ -24444,11 +24458,19 @@ var SearchBarSection = /** @class */ (function (_super) {
         });
     };
     SearchBarSection.prototype.render = function () {
-        var conn = new FileConnection_1.default('friends');
-        var friends = conn.Friends();
+        /*
+            To add a new Search to a JSON file
+            1. Add File Connection
+            2. Add Objects to Data Array
+            3. Add Title string to Titles Array.
+        */
+        var friends = new FileConnection_1.default('friends').Friends();
+        var products = new FileConnection_1.default('products').Products();
+        var DATA = new Array(friends, products);
+        var TITLES = new Array("friends", "products");
         return (React.createElement("div", { className: "searchBar" },
             React.createElement(Search, { searchTerm: this.state.filterText, userInput: this.handleUserInput }),
-            React.createElement(Table, { searchTerm: this.state.filterText, data: friends, title: "friends" })));
+            React.createElement(Table, { searchTerm: this.state.filterText, data: DATA, titles: TITLES })));
     };
     return SearchBarSection;
 }(React.Component));
