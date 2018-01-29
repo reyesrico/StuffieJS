@@ -24281,7 +24281,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
 var react_router_dom_1 = __webpack_require__(3);
-var SearchBar_1 = __webpack_require__(101);
+var SearchBarSection_1 = __webpack_require__(101);
 var MenuSection = /** @class */ (function (_super) {
     __extends(MenuSection, _super);
     function MenuSection(props) {
@@ -24307,7 +24307,7 @@ var MenuSection = /** @class */ (function (_super) {
                     React.createElement(react_router_dom_1.Link, { to: '/products' }, "Products"))),
             React.createElement("hr", null),
             React.createElement("div", { className: 'searchBarGroup' },
-                React.createElement(SearchBar_1.default, null))));
+                React.createElement(SearchBarSection_1.default, null))));
     };
     return MenuSection;
 }(React.Component));
@@ -24428,9 +24428,9 @@ var Search = /** @class */ (function (_super) {
     };
     return Search;
 }(React.Component));
-var SearchBar = /** @class */ (function (_super) {
-    __extends(SearchBar, _super);
-    function SearchBar(props) {
+var SearchBarSection = /** @class */ (function (_super) {
+    __extends(SearchBarSection, _super);
+    function SearchBarSection(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {
             filterText: ''
@@ -24438,21 +24438,21 @@ var SearchBar = /** @class */ (function (_super) {
         _this.handleUserInput = _this.handleUserInput.bind(_this);
         return _this;
     }
-    SearchBar.prototype.handleUserInput = function (filter) {
+    SearchBarSection.prototype.handleUserInput = function (filter) {
         this.setState({
             filterText: filter
         });
     };
-    SearchBar.prototype.render = function () {
+    SearchBarSection.prototype.render = function () {
         var conn = new FileConnection_1.default('friends');
         var friends = conn.Friends();
         return (React.createElement("div", { className: "searchBar" },
             React.createElement(Search, { searchTerm: this.state.filterText, userInput: this.handleUserInput }),
             React.createElement(Table, { searchTerm: this.state.filterText, data: friends, title: "friends" })));
     };
-    return SearchBar;
+    return SearchBarSection;
 }(React.Component));
-exports.default = SearchBar;
+exports.default = SearchBarSection;
 
 
 /***/ }),

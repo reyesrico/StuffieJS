@@ -132,7 +132,7 @@ interface ISearchBarState {
     filterText: string
 }
 
-class SearchBar extends React.Component<{}, ISearchBarState>{
+class SearchBarSection extends React.Component<{}, ISearchBarState>{
     constructor(props: any) {
         super(props);
         this.state = {
@@ -160,4 +160,4 @@ class SearchBar extends React.Component<{}, ISearchBarState>{
     }
 }
 
-export default SearchBar;
+export default SearchBarSection;

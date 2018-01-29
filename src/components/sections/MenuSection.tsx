@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import TextField from '../web_objects/TextField';
-import SearchBar from './SearchBar';
+import SearchBarSection from './SearchBarSection';
 
 interface IMenuSectionProps {
     user: any;
@@ -31,7 +31,7 @@ class MenuSection extends React.Component<IMenuSectionProps, {}> {
                 </div>
                 <hr />
                 <div className='searchBarGroup'>
-                <SearchBar />
+                <SearchBarSection />
                 </div>
             </div>
         );
