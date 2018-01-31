@@ -1,7 +1,14 @@
 import FileConnection from '../connection/FileConnection';
 
+interface User {
+    mail: string,
+    pass: string,
+    name: string
+}
+
 class Users {
     users: any;
+    user: User;
 
     constructor(){
         var conn = new FileConnection('users');
@@ -9,13 +16,13 @@ class Users {
     }
 
     getUser(mail: string){
-        var user;
+        var user_obj = this.user;
         this.users.forEach(function(us: any){
             if(us.mail === mail){
-                user = us;
+                user_obj = us;
             }
-        });
-        return user;
+        }, user_obj);
+        return user_obj;
     }
 
     setUser(user: any){

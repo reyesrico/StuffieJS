@@ -54,10 +54,11 @@ class Login extends React.Component<{}, ILoginState> {
             .catch(function (err: any) {
                 console.error("err: " + err);
                 var users = new Users();
-                var current_user = users.getUser(login.state.mail);
+                const current_user = users.getUser(login.state.mail);
                 if (current_user !== undefined) {
                     localStorage.setItem('username', login.state.mail);
                     localStorage.setItem('password', login.state.password);
+                    localStorage.setItem('name', current_user.name);
                     alert("Login Successful using Data");
                     login.setState({ redirectToNewPage: true });
                 }

@@ -2058,13 +2058,13 @@ var Users = /** @class */ (function () {
         this.users = conn.Users();
     }
     Users.prototype.getUser = function (mail) {
-        var user;
+        var user_obj = this.user;
         this.users.forEach(function (us) {
             if (us.mail === mail) {
-                user = us;
+                user_obj = us;
             }
-        });
-        return user;
+        }, user_obj);
+        return user_obj;
     };
     Users.prototype.setUser = function (user) {
         this.users.push(user);
@@ -24739,6 +24739,7 @@ var Login = /** @class */ (function (_super) {
             if (current_user !== undefined) {
                 localStorage.setItem('username', login.state.mail);
                 localStorage.setItem('password', login.state.password);
+                localStorage.setItem('name', current_user.name);
                 alert("Login Successful using Data");
                 login.setState({ redirectToNewPage: true });
             }
