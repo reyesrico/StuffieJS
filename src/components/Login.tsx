@@ -2,9 +2,10 @@ import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import TextField from './web_objects/TextField';
 import Users from '../models/Users';
+var axios = require('axios');
 
 interface ILoginState {
-    username: string,
+    mail: string,
     password: string,
     redirectToNewPage: boolean
 }
@@ -13,17 +14,13 @@ class Login extends React.Component<{}, ILoginState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            username: '',
+            mail: '',
             password: '',
             redirectToNewPage: false
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    validateForm() {
-        return this.state.username.length > 0 && this.state.password.length > 0;
     }
 
     handleChange(event: any) {
@@ -34,19 +31,48 @@ class Login extends React.Component<{}, ILoginState> {
     }
 
     handleSubmit(event: any) {
-        var users = new Users();
-        var current_user = users.getUser(this.state.username);
-        if (current_user !== undefined) {
-            localStorage.setItem('username', this.state.username);
-            localStorage.setItem('password', this.state.password);
-            alert("Login successful");
-            this.setState({ redirectToNewPage: true });
-        }
         event.preventDefault();
+        var url = 'http://localhost:3001/api/users';
+        var user = {
+            params: {
+                mail: this.state.mail,
+                pass: this.state.password
+            }
+        };
+
+        var login = this;
+
+        axios.get(url, user)
+            .then(function (res: any) {
+                console.log("res: " + res);
+                localStorage.setItem('username', res.data.mail);
+                localStorage.setItem('password', res.data.pass);
+                localStorage.setItem('name', res.data.name);
+                login.setState({ redirectToNewPage: true })
+                alert("Login Successful using DB");
+            }, login)
+            .catch(function (err: any) {
+                console.error("err: " + err);
+                var users = new Users();
+                var current_user = users.getUser(login.state.mail);
+                if (current_user !== undefined) {
+                    localStorage.setItem('username', login.state.mail);
+                    localStorage.setItem('password', login.state.password);
+                    alert("Login Successful using Data");
+                    login.setState({ redirectToNewPage: true });
+                }
+            }, login);
+    }
+
+    componentWillUpdate() {
+        console.log("Waiting to redirect");
+        if (this.state.redirectToNewPage) {
+            return (<Redirect to='/' />);
+        }
     }
 
     render() {
-        if(this.state.redirectToNewPage) {
+        if (localStorage.getItem('username').length > 0 && localStorage.getItem('password').length > 0) {
             return (<Redirect to='/' />);
         }
         return (
@@ -55,8 +81,8 @@ class Login extends React.Component<{}, ILoginState> {
                 <form onSubmit={this.handleSubmit}>
                     <TextField
                         type="mail"
-                        name="username"
-                        value={this.state.username}
+                        name="mail"
+                        value={this.state.mail}
                         hintText="Enter your Username"
                         onChange={this.handleChange} />
                     <TextField

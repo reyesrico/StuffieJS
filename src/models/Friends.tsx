@@ -16,17 +16,20 @@ class Friends {
     getFriends() {
         var user_friends: any[];
         var friends = new Array();
-        var um = this.user.mail;
-        this.friends.forEach(function (obj: any) {
-            if (obj.mail === um) {
-                user_friends = obj.friends;
-            }
-        });
 
-        var us = new Users();
-        user_friends.forEach(function (friend: any) {
-            friends.push(us.getUser(friend.mail));
-        });
+        if (this.user) {
+            var um = this.user.mail;
+            this.friends.forEach(function (obj: any) {
+                if (obj.mail === um) {
+                    user_friends = obj.friends;
+                }
+            });
+
+            var us = new Users();
+            user_friends.forEach(function (friend: any) {
+                friends.push(us.getUser(friend.mail));
+            });
+        }
         return friends;
     }
 }

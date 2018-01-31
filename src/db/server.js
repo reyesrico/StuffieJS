@@ -36,12 +36,15 @@ router.get('/', function (req, res) {
 
 router.route('/users')
     .get(function (req, res) {
-
+        //call them as params, read them as query 
         if (req.query.mail) {
             User.findOne({ "mail": req.query.mail }, function (err, user) {
                 if (err)
                     res.send(err);
                 res.json(user);
+                res.body = user;
+                console.log("res" + res);
+                console.log("res" + res.body);
             });
         }
         else {

@@ -7,14 +7,19 @@ import Users from '../../models/Users';
 class BarSection extends React.Component {
   username: string;
   user: any;
-  
+
   constructor(props: any) {
     super(props);
 
     this.username = localStorage.getItem('username');
     if (this.username !== undefined) {
       var us = new Users();
-      this.user = us.getUser(this.username);
+      //us.getUser(this.username);
+      this.user = {
+        mail: localStorage.getItem('username'),
+        pass: localStorage.getItem('password'),
+        name: localStorage.getItem('name')
+      };
     }
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -22,6 +27,7 @@ class BarSection extends React.Component {
   handleLogout() {
     localStorage.setItem('username', '');
     localStorage.setItem('password', '');
+    localStorage.setItem('name', '');
     alert("Logout");
   }
 
