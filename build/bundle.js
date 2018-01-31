@@ -26565,7 +26565,11 @@ var Friends = /** @class */ (function (_super) {
             return (React.createElement("div", { className: 'friends' },
                 React.createElement("div", { className: 'sectionTitle' }, "Friends"),
                 React.createElement("ul", null, this.user_friends.map(function (friend) {
-                    return React.createElement("li", { key: friend.mail }, friend.mail);
+                    return React.createElement("li", { key: friend.mail },
+                        React.createElement("b", null, friend.name),
+                        " (",
+                        friend.mail,
+                        ") ");
                 }))));
         }
     };

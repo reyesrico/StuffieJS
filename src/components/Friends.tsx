@@ -34,7 +34,7 @@ class Friends extends React.Component {
                     <ul>
                         {
                             this.user_friends.map(function (friend) {
-                                return <li key={friend.mail}>{friend.mail}</li>;
+                            return <li key={friend.mail}><b>{friend.name}</b> ({friend.mail}) </li>;
                             })
                         }
                     </ul>
