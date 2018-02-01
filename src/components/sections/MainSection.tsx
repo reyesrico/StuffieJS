@@ -5,6 +5,7 @@ import Products from '../Products';
 import Friends from '../Friends';
 import Tickets from '../Tickets';
 import Report from '../Report';
+import Chat from '../Chat';
 
 class MainSection extends React.Component {
     constructor(props: any) {
@@ -19,7 +20,8 @@ class MainSection extends React.Component {
                     <Route path='/products' component={Products} />
                     <Route path='/friends' component={Friends} />
                     <Route path='/tickets' component={Tickets} />
-                    <Route path='/report' component={Report} />                    
+                    <Route path='/report' component={Report} />
+                    <Route path='/chat' component={Chat} />
                 </Switch>
             </div>
         );

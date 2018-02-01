@@ -22,3 +22,8 @@
 .reportProduct {
     color: black;
 }
+
+iframe {
+    height: 250px;
+    width: 100%;
+}

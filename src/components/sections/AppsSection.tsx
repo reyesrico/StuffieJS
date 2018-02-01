@@ -7,7 +7,7 @@ class AppsSection extends React.Component {
             <div className="apps">
                 <div className='appsItem'><Link to='/tickets'>Tickets</Link></div>
                 <div className='appsItem'><Link to='/report'>Report</Link></div>
-                <div className='appsItem'><Link to='/'>App 3</Link></div>
+                <div className='appsItem'><Link to='/chat'>Chat</Link></div>
             </div>
         );
     }

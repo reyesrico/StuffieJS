@@ -25796,7 +25796,7 @@ var react_router_dom_1 = __webpack_require__(3);
 var BarSection_1 = __webpack_require__(125);
 var ProductsSection_1 = __webpack_require__(128);
 var MainSection_1 = __webpack_require__(129);
-var AppsSection_1 = __webpack_require__(142);
+var AppsSection_1 = __webpack_require__(143);
 var Footer_1 = __webpack_require__(49);
 var MainPage = /** @class */ (function (_super) {
     __extends(MainPage, _super);
@@ -26167,6 +26167,7 @@ var Products_1 = __webpack_require__(131);
 var Friends_1 = __webpack_require__(136);
 var Tickets_1 = __webpack_require__(137);
 var Report_1 = __webpack_require__(141);
+var Chat_1 = __webpack_require__(142);
 var MainSection = /** @class */ (function (_super) {
     __extends(MainSection, _super);
     function MainSection(props) {
@@ -26179,7 +26180,8 @@ var MainSection = /** @class */ (function (_super) {
                 React.createElement(react_router_dom_1.Route, { path: '/products', component: Products_1.default }),
                 React.createElement(react_router_dom_1.Route, { path: '/friends', component: Friends_1.default }),
                 React.createElement(react_router_dom_1.Route, { path: '/tickets', component: Tickets_1.default }),
-                React.createElement(react_router_dom_1.Route, { path: '/report', component: Report_1.default }))));
+                React.createElement(react_router_dom_1.Route, { path: '/report', component: Report_1.default }),
+                React.createElement(react_router_dom_1.Route, { path: '/chat', component: Chat_1.default }))));
     };
     return MainSection;
 }(React.Component));
@@ -27000,6 +27002,37 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
+var Chat = /** @class */ (function (_super) {
+    __extends(Chat, _super);
+    function Chat() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Chat.prototype.render = function () {
+        return (React.createElement("iframe", { src: 'https://webchat.botframework.com/embed/ChiquiBot?s=av584XPJzu0.cwA.OBk.-SuFbWkF8dtJuQEZFzB3yplPree9BOHnMMW4CNTlTFU' }));
+    };
+    return Chat;
+}(React.Component));
+exports.default = Chat;
+
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(0);
 var react_router_dom_1 = __webpack_require__(3);
 var AppsSection = /** @class */ (function (_super) {
     __extends(AppsSection, _super);
@@ -27013,7 +27046,7 @@ var AppsSection = /** @class */ (function (_super) {
             React.createElement("div", { className: 'appsItem' },
                 React.createElement(react_router_dom_1.Link, { to: '/report' }, "Report")),
             React.createElement("div", { className: 'appsItem' },
-                React.createElement(react_router_dom_1.Link, { to: '/' }, "App 3"))));
+                React.createElement(react_router_dom_1.Link, { to: '/chat' }, "Chat"))));
     };
     return AppsSection;
 }(React.Component));
