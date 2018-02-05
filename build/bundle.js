@@ -27008,7 +27008,9 @@ var Chat = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Chat.prototype.render = function () {
-        return (React.createElement("iframe", { src: 'https://webchat.botframework.com/embed/ChiquiBot?s=av584XPJzu0.cwA.OBk.-SuFbWkF8dtJuQEZFzB3yplPree9BOHnMMW4CNTlTFU' }));
+        return (
+        //ChiquiBot?s=av584XPJzu0.cwA.OBk.-SuFbWkF8dtJuQEZFzB3yplPree9BOHnMMW4CNTlTFU            
+        React.createElement("iframe", { src: 'https://webchat.botframework.com/embed/StuffieBot?s=fkpQavtTB78.cwA.pjM.9djZJuhRob4Mt-Lb5-1Wk7yrsHtLAxOKIL6w3gE4910' }));
     };
     return Chat;
 }(React.Component));
