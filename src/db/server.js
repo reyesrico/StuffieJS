@@ -113,6 +113,68 @@ router.route('/users')
     });
 
 /*
+** Routing Friends
+*/
+router.route('/friends')
+    .get(function (req, res) {
+        var request = null;
+
+        //HTML call        
+        if (req.body && req.body.mail) {
+            request = req.body;
+        }
+        //Postman call        
+        else if (req.query && req.query.mail) {
+            request = req.query;
+        }
+        
+        User.findOne({ "mail": request.mail }, function (err, user) {
+                if (err)
+                    res.send(err);
+                res.json(user.friends);
+                res.body = user.friends;
+                console.log("res" + res.body);
+        });
+    })
+    .post(function (req, res) {
+        var request = null;
+
+        //HTML call        
+        if (req.body && req.body.mail) {
+            request = req.body;
+        }
+        //Postman call        
+        else if (req.query && req.query.mail) {
+            request = req.query;
+        }
+        
+        User.findOne({ "mail": request.mail }, function (err, user) {
+                if (err)
+                    res.send(err);
+
+                //Finding user to add product
+                User.findOne({"mail": request.friend}, function(err, friend) {
+                    if (err)
+                        res.send(`User FindOne Error: ${err}`);
+
+                    user.friends.push(friend._id);
+                    user.save(function (err) {
+                        if (err)
+                            res.send(`User Save Error: ${err}`);
+
+                        let response = {
+                            message: "Friend added to user successfully!",
+                            user: user
+                        };
+                        res.status(200).send(response);
+                    });
+                });                    
+        });
+    })
+    .delete(function (req, res) {
+    });
+
+/*
 ** Routing Products
 */
 router.route('/products')

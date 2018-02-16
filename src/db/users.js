@@ -10,7 +10,8 @@ var UsersSchema = new Schema({
     mail: { type: String, required: true, index: { unique: true } },
     pass: { type: String, required: true },
     name: { type: String, required: true },
-    products: [{ type: Schema.Types.ObjectId, ref: 'Product' }]
+    products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 //export our module to use in server.js
