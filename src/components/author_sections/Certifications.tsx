@@ -20,6 +20,7 @@ class Certifications extends React.Component<IContentProps> {
                                 <h3>{cert.name}</h3>
                                 <hr />
                                 <div className="author-subsection-institution">{cert.institution}</div>
+                                <div className="author-subsection-year">{cert.year}</div>
                             </div>
                         );
                     }, id)

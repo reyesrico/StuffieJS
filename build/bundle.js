@@ -27328,8 +27328,8 @@ var Education = /** @class */ (function (_super) {
                 id++;
                 return (React.createElement("div", { className: "author-subsection", key: "edu_" + id },
                     React.createElement("h3", null, edu.university),
-                    React.createElement("hr", null),
                     React.createElement("div", { className: "author-subsection-date" }, edu.date),
+                    React.createElement("hr", null),
                     React.createElement("div", { className: "author-subsection-title" }, edu.degree),
                     React.createElement("div", { className: "author-subsection-university" }, edu.university),
                     React.createElement("div", { className: "author-subsection-dissertation" }, edu.dissertation)));
@@ -27371,11 +27371,11 @@ var Portfolio = /** @class */ (function (_super) {
                 id++;
                 return (React.createElement("div", { className: "author-subsection", key: "pft_" + id },
                     React.createElement("h3", null, ptf.name),
+                    React.createElement("div", { className: "author-subsection-date" }, ptf.date),
                     React.createElement("hr", null),
                     React.createElement("div", { className: "author-subsection-description" }, ptf.description),
-                    React.createElement("div", { className: "author-subsection-code" }, ptf.code),
-                    React.createElement("div", { className: "author-subsection-date" }, ptf.date),
-                    React.createElement("div", { className: "author-subsection-skills" }, ptf.skills)));
+                    React.createElement("div", { className: "author-subsection-skills" }, ptf.skills),
+                    React.createElement("div", { className: "author-subsection-code" }, ptf.code)));
             }, id)));
     };
     return Portfolio;
@@ -27496,7 +27496,8 @@ var Certifications = /** @class */ (function (_super) {
                 return (React.createElement("div", { className: "author-subsection", key: "cert_" + id },
                     React.createElement("h3", null, cert.name),
                     React.createElement("hr", null),
-                    React.createElement("div", { className: "author-subsection-institution" }, cert.institution)));
+                    React.createElement("div", { className: "author-subsection-institution" }, cert.institution),
+                    React.createElement("div", { className: "author-subsection-year" }, cert.year)));
             }, id)));
     };
     return Certifications;
@@ -27535,10 +27536,10 @@ var Research = /** @class */ (function (_super) {
                 id++;
                 return (React.createElement("div", { className: "author-subsection", key: "paper_" + id },
                     React.createElement("h3", null, paper.title),
+                    React.createElement("div", { className: "author-subsection-date" }, paper.date),
                     React.createElement("hr", null),
                     React.createElement("div", { className: "author-subsection-authors" }, paper.authors),
                     React.createElement("div", { className: "author-subsection-institution" }, paper.institution),
-                    React.createElement("div", { className: "author-subsection-date" }, paper.date),
                     React.createElement("div", { className: "author-subsection-place" }, paper.place),
                     React.createElement("div", { className: "author-subsection-note" }, paper.note)));
             }, id)));
@@ -27552,7 +27553,7 @@ exports.default = Research;
 /* 155 */
 /***/ (function(module, exports) {
 
-module.exports = {"Experience":[{"company":"Microsoft","date":"06/2016 - Present","title":"Frontend Developer","activities":["Developed Channel Inspector tool for user guidance about bots and features between channels.","Implemented markdown text processing for Bot Framework Web Chat.","Developed C# bots using Microsoft bot framework for testing framework in different channels (apps)."]},{"company":"Microsoft","date":"06/2016 - Present","title":"Senior QA Engineer","activities":["Lead QA for Bot Framework product team.","Implemented pre-production and production Bot-Framework SDK automatic tests using XPath in Selenium platform.","Implemented Bot Framework Web Chat UI Unit Tests using Electron, Nightmare, Mocha and Mock_DL libraries.","Provide technical support and assistance to test planning and customer support internal teams."]},{"company":"V&C Robotica y Automatizacion","date":"06/2015 - 06/2016","title":"iOS Developer","activities":["Designed and developed IOS architecture for the new Nescafe Dolce Gusto vending machine coffee selector application.","Defined maintenance and support for the coffee vending machine."]},{"company":"Stuffie.net","date":"10/2014 - 06/2016","title":"Frontend Developer","activities":["Founder of the social network Stuffie Company (http://www.stuffie.net)","Designed Stuffie.net web site first model.","Implemented Stuffie.net site to be deployed in a Startup by Dec 2015.","Implemented web portal under Cloud Computing using Azure Services and SQL 2012 as main database."]},{"company":"Procter & Gamble","date":"07/2007 - 10/2014","title":"Project Manager / Frontend Developer","activities":["Developed P&G’s Latin America mobility web site (SharePoint 2013) to reduce 20% of current company spends (~$1.7MM)","Designed IT Innovation web site using HTML5, CSS3 and JavaScript technologies.","Lead Mexico legal electronic invoice implementation for top 3 P&G Mexico customers using PMP methodology."]}],"Education":[{"university":"Tecnologico de Monterrey (ITESM CEM)","date":"01/2006 - 04/2008","degree":"Master of Science, Degree in Computer Science with Highest Honors","dissertation":"Dissertation: Behavior Agent Definition by Reinforcement Learning (Java)"},{"university":"Tecnologico de Monterrey (ITESM CEM)","date":"06/2001 - 12/2006","degree":"Bachelor of Science, Degree in Computer Science with Honors"}],"Portfolio":[{"name":"Microsoft Web Chat","description":"Rendering text and attachments through Web Chat channel","code":"Available here","date":"01/2017 - Present","skills":"React, Typescript, Redux, Mocha, Nightmare, Markdown-it"},{"name":"Microsoft Channel Inspector","description":"Web tool that describes differnt channel renders for bot responses.","code":"Available here","date":"06/2017 - Present","skills":"JavaScript, HTML5, CSS3, JQuery"},{"name":"Stuffie.net","description":"Social network media that enables people to share and get their personal belongings (stuff)","code":"Available here","date":"10/2014 - Present","skills":"C#, Visual Studio 2013, SQL Server 2012, Azure, XML, HTML5Up"},{"name":"Nescafe Dolce Gusto Vending Machine","description":"iPad application that is connected to a new vending machine. The iPad is the user-interface between the user and the vending.","code":"Available here","date":"06/2015 - 06/2016","skills":"C Objective, XCode, iPad, Mac OS X, Red Park SDK"}],"Skills":[{"name":"Front-End","technologies":"JavaScript, (5 years), jQuery, GeoCoding, HTML5, CSS3 (2 years), React (6 months)."},{"name":"Back-End","technologies":"C#, Java, C++, SQL (5 years), C-Objective, Swift (2 years), REST, SOAP (1 year)."},{"name":"QA Testing","technologies":"Selenium (2 years), Nightmare, Mocha (1 year), BrowserStack (6 months), WebDriverIO (6 months)."},{"name":"Repositories","technologies":"GitHub/GIT (2 years), Windows Azure (1 year), Microsoft Visual SourceSafe (3 years)."},{"name":"Languages","technologies":"Spanish (Native), English (Fluent), Portuguese (Intermediate)."}],"Awards":[{"name":"3rd. place, Second Latin American Robocup Contest.","year":2006,"institution":"IEEE Latin-American 2006"},{"name":"1st. place, First Latin American Robocup Contest.","year":2005,"institution":"IEEE Latin-American 2005"}],"Certifications":[{"name":"Successful Project Management (PMP). Proficient Level.","institution":"The Procter & Gamble Co. 2013"},{"name":"Sun Certified Programmer for the Java 2 Platform 1.4","institution":"Sun Microsystems 2005"},{"name":"Certificate in Computer Programming","institution":"Carnegie Technology Education 2003"}],"Research":[{"authors":"Millan, E., Reyes-Rico, C., Sobrino Arvizu, A., and Ramírez, J. R","title":"Automatic Online Calibrating for Indoor and Outdoor Environments with Variable Illumination","institution":"4th IEEE Latin American Robotic Symposium.","date":"Nov. 9th 2007","place":"Monterrey, Mexico"},{"authors":"Reyes-Rico, Carlos","title":"Finding DNA Motifs Using Genetic Algorithms","institution":"Fifth Mexican International Conference on Artificial Intelligence.","date":"Nov. 13 – 17, 2006.","place":"Apizaco, Mexico","note":"IEEE Computer Society Publisher. P.p. 331 – 339."}]}
+module.exports = {"Experience":[{"company":"Microsoft","date":"06/2016 - Present","title":"Frontend Developer","activities":["Developed Channel Inspector tool for user guidance about bots and features between channels.","Implemented markdown text processing for Bot Framework Web Chat.","Developed C# bots using Microsoft bot framework for testing framework in different channels (apps)."]},{"company":"Microsoft","date":"06/2016 - Present","title":"Senior QA Engineer","activities":["Lead QA for Bot Framework product team.","Implemented pre-production and production Bot-Framework SDK automatic tests using XPath in Selenium platform.","Implemented Bot Framework Web Chat UI Unit Tests using Electron, Nightmare, Mocha and Mock_DL libraries.","Provide technical support and assistance to test planning and customer support internal teams."]},{"company":"V&C Robotica y Automatizacion","date":"06/2015 - 06/2016","title":"iOS Developer","activities":["Designed and developed IOS architecture for the new Nescafe Dolce Gusto vending machine coffee selector application.","Defined maintenance and support for the coffee vending machine."]},{"company":"Stuffie.net","date":"10/2014 - 06/2016","title":"Frontend Developer","activities":["Founder of the social network Stuffie Company (http://www.stuffie.net)","Designed Stuffie.net web site first model.","Implemented Stuffie.net site to be deployed in a Startup by Dec 2015.","Implemented web portal under Cloud Computing using Azure Services and SQL 2012 as main database."]},{"company":"Procter & Gamble","date":"07/2007 - 10/2014","title":"Project Manager / Frontend Developer","activities":["Developed P&G’s Latin America mobility web site (SharePoint 2013) to reduce 20% of current company spends (~$1.7MM)","Designed IT Innovation web site using HTML5, CSS3 and JavaScript technologies.","Lead Mexico legal electronic invoice implementation for top 3 P&G Mexico customers using PMP methodology."]}],"Education":[{"university":"Tecnologico de Monterrey (ITESM CEM)","date":"01/2006 - 04/2008","degree":"Master of Science, Degree in Computer Science with Highest Honors","dissertation":"Dissertation: Behavior Agent Definition by Reinforcement Learning (Java)"},{"university":"Tecnologico de Monterrey (ITESM CEM)","date":"06/2001 - 12/2006","degree":"Bachelor of Science, Degree in Computer Science with Honors"}],"Portfolio":[{"name":"Microsoft Web Chat","description":"Rendering text and attachments through Web Chat channel","code":"Available here","date":"01/2017 - Present","skills":"React, Typescript, Redux, Mocha, Nightmare, Markdown-it"},{"name":"Microsoft Channel Inspector","description":"Web tool that describes differnt channel renders for bot responses.","code":"Available here","date":"06/2017 - Present","skills":"JavaScript, HTML5, CSS3, JQuery"},{"name":"Stuffie.net","description":"Social network media that enables people to share and get their personal belongings (stuff)","code":"Available here","date":"10/2014 - Present","skills":"C#, Visual Studio 2013, SQL Server 2012, Azure, XML, HTML5Up"},{"name":"Nescafe Dolce Gusto Vending Machine","description":"iPad application that is connected to a new vending machine. The iPad is the user-interface between the user and the vending.","code":"Available here","date":"06/2015 - 06/2016","skills":"C Objective, XCode, iPad, Mac OS X, Red Park SDK"}],"Skills":[{"name":"Front-End","technologies":"JavaScript, (5 years), jQuery, GeoCoding, HTML5, CSS3 (2 years), React (6 months)."},{"name":"Back-End","technologies":"C#, Java, C++, SQL (5 years), C-Objective, Swift (2 years), REST, SOAP (1 year)."},{"name":"QA Testing","technologies":"Selenium (2 years), Nightmare, Mocha (1 year), BrowserStack (6 months), WebDriverIO (6 months)."},{"name":"Repositories","technologies":"GitHub/GIT (2 years), Windows Azure (1 year), Microsoft Visual SourceSafe (3 years)."},{"name":"Languages","technologies":"Spanish (Native), English (Fluent), Portuguese (Intermediate)."}],"Awards":[{"name":"3rd. place, Second Latin American Robocup Contest.","year":2006,"institution":"IEEE Latin-American 2006"},{"name":"1st. place, First Latin American Robocup Contest.","year":2005,"institution":"IEEE Latin-American 2005"}],"Certifications":[{"name":"Successful Project Management (PMP). Proficient Level.","institution":"The Procter & Gamble Co.","year":2013},{"name":"Sun Certified Programmer for the Java 2 Platform 1.4","institution":"Sun Microsystems","year":2005},{"name":"Certificate in Computer Programming","institution":"Carnegie Technology Education","year":2003}],"Research":[{"authors":"Millan, E., Reyes-Rico, C., Sobrino Arvizu, A., and Ramírez, J. R","title":"Automatic Online Calibrating for Indoor and Outdoor Environments with Variable Illumination","institution":"4th IEEE Latin American Robotic Symposium.","date":"Nov. 9th 2007","place":"Monterrey, Mexico"},{"authors":"Reyes-Rico, Carlos","title":"Finding DNA Motifs Using Genetic Algorithms","institution":"Fifth Mexican International Conference on Artificial Intelligence.","date":"Nov. 13 – 17, 2006.","place":"Apizaco, Mexico","note":"IEEE Computer Society Publisher. P.p. 331 – 339."}]}
 
 /***/ }),
 /* 156 */
@@ -27577,7 +27578,30 @@ var Menu = /** @class */ (function (_super) {
     __extends(Menu, _super);
     function Menu(props) {
         return _super.call(this, props) || this;
+        // this.handleScroll = this.handleScroll.bind(this);
+        // this.isScrolledIntoView = this.isScrolledIntoView.bind(this);        
     }
+    // handleScroll(event: any) {
+    //     var divs = document.getElementsByClassName('author-menuitem');
+    //     for(var i=0; i<divs.length; i++){
+    //         if(this.isScrolledIntoView(divs[i])){
+    //             divs[i].className 
+    //         }
+    //     }
+    // }
+    // isScrolledIntoView(elem: Element){    
+    //     var docViewTop = window.scrollY;
+    //     var docViewBottom = docViewTop + window.innerHeight;
+    //     var elemTop = elem.getBoundingClientRect().top;
+    //     var elemBottom = elemTop + elem.clientHeight;
+    //     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    // }    
+    // componentDidMount() {
+    //     window.addEventListener('scroll', this.handleScroll);
+    // }
+    // componentWillUnmount() {
+    //     window.removeEventListener('scroll', this.handleScroll);
+    // }
     Menu.prototype.render = function () {
         return (React.createElement("div", { className: "author-menu" },
             React.createElement("div", { className: "author-data" },
@@ -27591,20 +27615,20 @@ var Menu = /** @class */ (function (_super) {
                     React.createElement("div", { className: "author-smitem" },
                         React.createElement("a", null, "Email")))),
             React.createElement("div", { className: "author-menulist" },
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#experience" }, "Work Experience")),
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#education" }, "Education")),
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#portfolio" }, "Portfolio")),
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#skills" }, "Skills")),
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#awards" }, "Awards")),
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#certifications" }, "Certifications")),
-                React.createElement("div", { className: "author-menuitem" },
-                    React.createElement("a", { href: "#research" }, "Research")))));
+                React.createElement("a", { href: "#experience" },
+                    React.createElement("div", { className: "author-menuitem" }, "Work Experience")),
+                React.createElement("a", { href: "#education" },
+                    React.createElement("div", { className: "author-menuitem" }, "Education")),
+                React.createElement("a", { href: "#portfolio" },
+                    React.createElement("div", { className: "author-menuitem" }, "Portfolio")),
+                React.createElement("a", { href: "#skills" },
+                    React.createElement("div", { className: "author-menuitem" }, "Skills")),
+                React.createElement("a", { href: "#awards" },
+                    React.createElement("div", { className: "author-menuitem" }, "Awards")),
+                React.createElement("a", { href: "#certifications" },
+                    React.createElement("div", { className: "author-menuitem" }, "Certifications")),
+                React.createElement("a", { href: "#research" },
+                    React.createElement("div", { className: "author-menuitem" }, "Research")))));
     };
     return Menu;
 }(React.Component));

@@ -132,15 +132,18 @@
     "Certifications": [
         {
             "name": "Successful Project Management (PMP). Proficient Level.",
-            "institution": "The Procter & Gamble Co. 2013"
+            "institution": "The Procter & Gamble Co.",
+            "year": 2013
         },
         {
             "name": "Sun Certified Programmer for the Java 2 Platform 1.4",
-            "institution": "Sun Microsystems 2005"
+            "institution": "Sun Microsystems",
+            "year": 2005            
         },
         {
             "name": "Certificate in Computer Programming",
-            "institution": "Carnegie Technology Education 2003"
+            "institution": "Carnegie Technology Education",
+            "year": 2003
         }
     ],
     "Research": [

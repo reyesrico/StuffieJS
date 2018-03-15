@@ -18,11 +18,11 @@ class Portfolio extends React.Component<IContentProps> {
                         return (
                             <div className="author-subsection" key={`pft_${id}`}>
                                 <h3>{ptf.name}</h3>
+                                <div className="author-subsection-date">{ptf.date}</div>                                
                                 <hr />
                                 <div className="author-subsection-description">{ptf.description}</div>
-                                <div className="author-subsection-code">{ptf.code}</div>
-                                <div className="author-subsection-date">{ptf.date}</div>
                                 <div className="author-subsection-skills">{ptf.skills}</div>
+                                <div className="author-subsection-code">{ptf.code}</div>                                
                             </div>
                         );
                     }, id)

@@ -5,7 +5,36 @@ class Menu extends React.Component {
 
     constructor(props: any) {
         super(props);
+        // this.handleScroll = this.handleScroll.bind(this);
+        // this.isScrolledIntoView = this.isScrolledIntoView.bind(this);        
     }
+
+    // handleScroll(event: any) {
+    //     var divs = document.getElementsByClassName('author-menuitem');
+    //     for(var i=0; i<divs.length; i++){
+    //         if(this.isScrolledIntoView(divs[i])){
+    //             divs[i].className 
+    //         }
+    //     }
+    // }
+
+    // isScrolledIntoView(elem: Element){    
+    //     var docViewTop = window.scrollY;
+    //     var docViewBottom = docViewTop + window.innerHeight;
+    
+    //     var elemTop = elem.getBoundingClientRect().top;
+    //     var elemBottom = elemTop + elem.clientHeight;
+    
+    //     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    // }    
+
+    // componentDidMount() {
+    //     window.addEventListener('scroll', this.handleScroll);
+    // }
+
+    // componentWillUnmount() {
+    //     window.removeEventListener('scroll', this.handleScroll);
+    // }
 
     render() {
         return (
@@ -20,13 +49,13 @@ class Menu extends React.Component {
                     </div>
                 </div>
                 <div className="author-menulist">
-                    <div className="author-menuitem"><a href="#experience">Work Experience</a></div>
-                    <div className="author-menuitem"><a href="#education">Education</a></div>
-                    <div className="author-menuitem"><a href="#portfolio">Portfolio</a></div>
-                    <div className="author-menuitem"><a href="#skills">Skills</a></div>
-                    <div className="author-menuitem"><a href="#awards">Awards</a></div>
-                    <div className="author-menuitem"><a href="#certifications">Certifications</a></div>
-                    <div className="author-menuitem"><a href="#research">Research</a></div>
+                    <a href="#experience"><div className="author-menuitem">Work Experience</div></a>
+                    <a href="#education"><div className="author-menuitem">Education</div></a>
+                    <a href="#portfolio"><div className="author-menuitem">Portfolio</div></a>
+                    <a href="#skills"><div className="author-menuitem">Skills</div></a>
+                    <a href="#awards"><div className="author-menuitem">Awards</div></a>
+                    <a href="#certifications"><div className="author-menuitem">Certifications</div></a>
+                    <a href="#research"><div className="author-menuitem">Research</div></a>
                 </div>
             </div>
         );

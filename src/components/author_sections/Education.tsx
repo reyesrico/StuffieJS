@@ -18,8 +18,8 @@ class Education extends React.Component<IContentProps> {
                         return (
                             <div className="author-subsection" key={`edu_${id}`}>
                                 <h3>{edu.university}</h3>
-                                <hr />
                                 <div className="author-subsection-date">{edu.date}</div>
+                                <hr />
                                 <div className="author-subsection-title">{edu.degree}</div>
                                 <div className="author-subsection-university">{edu.university}</div>
                                 <div className="author-subsection-dissertation">{edu.dissertation}</div>

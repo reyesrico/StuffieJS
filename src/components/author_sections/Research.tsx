@@ -18,10 +18,10 @@ class Research extends React.Component<IContentProps> {
                         return (
                             <div className="author-subsection" key={`paper_${id}`}>
                                 <h3>{paper.title}</h3>
+                                <div className="author-subsection-date">{paper.date}</div>                                
                                 <hr />
                                 <div className="author-subsection-authors">{paper.authors}</div>
                                 <div className="author-subsection-institution">{paper.institution}</div>
-                                <div className="author-subsection-date">{paper.date}</div>
                                 <div className="author-subsection-place">{paper.place}</div>
                                 <div className="author-subsection-note">{paper.note}</div>
                             </div>
