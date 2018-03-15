@@ -5,6 +5,7 @@ import Products from '../models/Products';
 import Categories from '../models/Categories';
 import TextField from './web_objects/TextField';
 import DropDown from './web_objects/DropDown';
+var axios = require('axios');
 
 interface IProductProps {
     name: string
@@ -13,8 +14,11 @@ interface IProductProps {
 interface IProductState {
     name: string,
     category: string,
+    categories: any[],
     productName: string,
     productDescription: string,
+    tags: string,
+    mail: string,
     redirectToNewPage: boolean
 }
 
@@ -41,16 +45,39 @@ class Product extends React.Component<IProductProps, IProductState> {
             this.user_products = this.uproducts.getProductsperUser('reyesrico@hotmail.com');
         }
 
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.getCategoriesDB = this.getCategoriesDB.bind(this);
+
         this.state = {
             name: '',
             productName: '',
             productDescription: '',
             category: '',
+            categories: [],
+            tags: '',
+            mail: this.username,
             redirectToNewPage: false
         }
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.getCategoriesDB();        
+    }
+
+    getCategoriesDB(){
+        event.preventDefault();
+        var url = 'http://localhost:3001/api/categories';
+
+        var productPage = this;
+
+        axios.get(url)
+            .then(function (res: any) {
+                console.log("res: " + res);
+                alert("Categories Successful using DB");
+                productPage.setState({categories: res.data});
+            }, productPage)
+            .catch(function (err: any) {
+                console.error("err: " + err);
+            });
     }
 
     handleChange(event: any) {
@@ -60,20 +87,43 @@ class Product extends React.Component<IProductProps, IProductState> {
         this.setState({ [name]: value });
     }
 
-    handleSubmit(event: any){
-        var products = new Products();
-        var newproduct = {"id": 1};
-        
-        if(!products.isProductRegistered(this.state.productName)){
-            //Register product
-        }                
-        if(!this.uproducts.isUProductRegistered(this.username, newproduct.id)){
-            //Register product to user
-        }
-        this.setState({ redirectToNewPage: true });
+    handleSubmit(event: any) {
         event.preventDefault();
+        var url = 'http://localhost:3001/api/products?id=1&name=Harry Potter&description=description product 1&category=1&tags=Harry Potter&mail=reyesrico@hotmail.com';
+        var product = {
+            params: {
+                id: 3,
+                name: this.state.name,
+                description: this.state.productDescription,
+                category: 1,
+                tags: this.state.tags,
+                mail: this.state.mail
+            }
+        };
+
+        var productpage = this;
+
+        // axios.post(url, product)
+        //     .then(function (res: any) {
+        //         console.log("res: " + res);
+        //         alert("Product Successful Registerd using DB");
+        //     }, productpage)
+        //     .catch(function (err: any) {
+        //         console.error("err: " + err);
+        //         productpage.setState({ redirectToNewPage: true });
+        //     }, productpage);
     }
 
+    componentWillMount() {
+        console.log("componentWillMount");
+        this.getCategoriesDB();
+    }
+
+    componentWillUpdate() {
+        console.log("componentWillUpdate");
+        alert(`cats length: ${this.state.categories.length}`);
+    }    
+        
     render() {
         if (this.state.redirectToNewPage) {
             return (<Redirect to='/' />);
@@ -100,10 +150,16 @@ class Product extends React.Component<IProductProps, IProductState> {
                         name='productDescription'
                         value={this.state.productDescription}
                         hintText="Enter product description"
-                        onChange={this.handleChange} />                        
+                        onChange={this.handleChange} />
+                    <TextField
+                        type='text'
+                        name='tags'
+                        value={this.state.tags}
+                        hintText="Enter tags separated by spaces"
+                        onChange={this.handleChange} />
                     <DropDown
                         values={this.categories} />
-                    <input type="submit" value="AddProduct" disabled />
+                    <input type="submit" value="AddProduct" />
                 </form>
             </div>
         );

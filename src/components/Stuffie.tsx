@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import StuffieRoute from './StuffieRoute';
+import Author from './Author';
 
 class Stuffie extends React.Component {
     constructor(props: any) {
@@ -13,6 +14,7 @@ class Stuffie extends React.Component {
         return (
             <div className='stuffie'>
                 <Switch>
+                    <Route exact path="/author" component={Author} />                    
                     <Route path="/" component={StuffieRoute} />
                 </Switch>
             </div>
@@ -21,7 +23,7 @@ class Stuffie extends React.Component {
 }
 
 render(
-    <BrowserRouter>    
+    <BrowserRouter>
         <Stuffie />
     </BrowserRouter>,
     document.getElementById('stuffie')
