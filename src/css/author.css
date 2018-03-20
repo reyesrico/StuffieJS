@@ -69,9 +69,15 @@ a:active .author-menuitem {
     color: var(--orange);
 }
 
+a .author-menuitemvisible {
+    background-color: var(--white);
+    color: var(--orange);
+    text-decoration: none;
+}
+
 /* INFO CSS */
 .author-content {
-    margin-left: 32px;
+    margin: 0px 32px 0px 32px;
 }
 
 .author-section {    

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import UProducts from '../models/UProducts';
-import Categories from '../models/Categories';
+import UProducts from '../../models/UProducts';
+import Categories from '../../models/Categories';
 
 class Report extends React.Component {
     

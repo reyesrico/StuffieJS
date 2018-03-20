@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Image from '../web_objects/Image';
 
 class Menu extends React.Component {
@@ -6,27 +7,36 @@ class Menu extends React.Component {
     constructor(props: any) {
         super(props);
         // this.handleScroll = this.handleScroll.bind(this);
-        // this.isScrolledIntoView = this.isScrolledIntoView.bind(this);        
+        // this.isScrolledIntoView = this.isScrolledIntoView.bind(this);
     }
 
     // handleScroll(event: any) {
     //     var divs = document.getElementsByClassName('author-menuitem');
-    //     for(var i=0; i<divs.length; i++){
-    //         if(this.isScrolledIntoView(divs[i])){
-    //             divs[i].className 
+    //     for (var i = 0; i < divs.length; i++) {
+    //         if (this.isScrolledIntoView(divs[i])) {
+    //             console.log(`if: ${divs[i].textContent}`)
+    //             divs[i].className = ".author-menuitemvisible";
+    //         }
+    //         else {
+    //             console.log(`else: ${divs[i].textContent}`)                
+    //             divs[i].className = ".author-menuitem";
     //         }
     //     }
     // }
 
-    // isScrolledIntoView(elem: Element){    
+    // isScrolledIntoView(elem: Element) {
     //     var docViewTop = window.scrollY;
     //     var docViewBottom = docViewTop + window.innerHeight;
-    
+
     //     var elemTop = elem.getBoundingClientRect().top;
     //     var elemBottom = elemTop + elem.clientHeight;
-    
+
     //     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-    // }    
+    // }
+
+    // componentDidUpdate() {
+    //     window.addEventListener('scroll', this.handleScroll);        
+    // }
 
     // componentDidMount() {
     //     window.addEventListener('scroll', this.handleScroll);
