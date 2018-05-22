@@ -73,7 +73,7 @@ class Login extends React.Component<{}, ILoginState> {
     }
 
     render() {
-        if (localStorage.getItem('username').length > 0 && localStorage.getItem('password').length > 0) {
+        if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
             return (<Redirect to='/' />);
         }
         return (

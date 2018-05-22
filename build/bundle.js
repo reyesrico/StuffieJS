@@ -45896,7 +45896,7 @@ var Login = /** @class */ (function (_super) {
         }
     };
     Login.prototype.render = function () {
-        if (localStorage.getItem('username').length > 0 && localStorage.getItem('password').length > 0) {
+        if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
             return (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
         }
         return (React.createElement("div", { className: 'stuffieLogin' },
