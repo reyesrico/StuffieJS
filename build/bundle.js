@@ -24746,7 +24746,7 @@ var React = __webpack_require__(0);
 var react_dom_1 = __webpack_require__(148);
 var react_router_dom_1 = __webpack_require__(14);
 var StuffieRoute_1 = __webpack_require__(304);
-var Author_1 = __webpack_require__(642);
+var Author_1 = __webpack_require__(643);
 var Stuffie = /** @class */ (function (_super) {
     __extends(Stuffie, _super);
     function Stuffie(props) {
@@ -46940,7 +46940,7 @@ var react_router_dom_1 = __webpack_require__(14);
 var BarSection_1 = __webpack_require__(335);
 var ProductsSection_1 = __webpack_require__(338);
 var MainSection_1 = __webpack_require__(340);
-var AppsSection_1 = __webpack_require__(641);
+var AppsSection_1 = __webpack_require__(642);
 var Footer_1 = __webpack_require__(167);
 var MainPage = /** @class */ (function (_super) {
     __extends(MainPage, _super);
@@ -47351,6 +47351,7 @@ var Tickets_1 = __webpack_require__(348);
 var Report_1 = __webpack_require__(352);
 var Chat_1 = __webpack_require__(353);
 var Graphics_1 = __webpack_require__(354);
+var Test_1 = __webpack_require__(641);
 var MainSection = /** @class */ (function (_super) {
     __extends(MainSection, _super);
     function MainSection(props) {
@@ -47365,7 +47366,8 @@ var MainSection = /** @class */ (function (_super) {
                 React.createElement(react_router_dom_1.Route, { path: '/tickets', component: Tickets_1.default }),
                 React.createElement(react_router_dom_1.Route, { path: '/report', component: Report_1.default }),
                 React.createElement(react_router_dom_1.Route, { path: '/chat', component: Chat_1.default }),
-                React.createElement(react_router_dom_1.Route, { path: '/graphics', component: Graphics_1.default }))));
+                React.createElement(react_router_dom_1.Route, { path: '/graphics', component: Graphics_1.default }),
+                React.createElement(react_router_dom_1.Route, { path: '/test', render: function () { return React.createElement(Test_1.default, { rows: 10, cols: 10 }); } }))));
     };
     return MainSection;
 }(React.Component));
@@ -63446,26 +63448,42 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var react_router_dom_1 = __webpack_require__(14);
-var AppsSection = /** @class */ (function (_super) {
-    __extends(AppsSection, _super);
-    function AppsSection() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var Test = /** @class */ (function (_super) {
+    __extends(Test, _super);
+    function Test(props) {
+        var _this = _super.call(this, props) || this;
+        _this.getRowsX = _this.getRowsX.bind(_this);
+        return _this;
     }
-    AppsSection.prototype.render = function () {
-        return (React.createElement("div", { className: "apps" },
-            React.createElement("div", { className: 'appsItem' },
-                React.createElement(react_router_dom_1.Link, { to: '/tickets' }, "Tickets")),
-            React.createElement("div", { className: 'appsItem' },
-                React.createElement(react_router_dom_1.Link, { to: '/report' }, "Report")),
-            React.createElement("div", { className: 'appsItem' },
-                React.createElement(react_router_dom_1.Link, { to: '/chat' }, "Chat")),
-            React.createElement("div", { className: 'appsItem' },
-                React.createElement(react_router_dom_1.Link, { to: '/graphics' }, "Graphics"))));
+    Test.prototype.getRowsX = function () {
+        var res = [];
+        for (var i = 0; i < this.props.rows; i++) {
+            var rowRes = '';
+            for (var j = 0; j < this.props.cols; j++) {
+                if (i == 0 || i == this.props.rows - 1) {
+                    rowRes += '#';
+                }
+                else {
+                    if (j == i || j == this.props.cols - i) {
+                        rowRes += '#';
+                    }
+                    else {
+                        rowRes += ' ';
+                    }
+                }
+            }
+            res.push({ id: i, row: rowRes });
+        }
+        return res;
     };
-    return AppsSection;
+    Test.prototype.render = function () {
+        return (React.createElement("div", null, this.getRowsX().map(function (row) {
+            return React.createElement("div", { key: row.id }, row.row.replace(/ /g, "\u00a0"));
+        })));
+    };
+    return Test;
 }(React.Component));
-exports.default = AppsSection;
+exports.default = Test;
 
 
 /***/ }),
@@ -63486,18 +63504,28 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var Main_1 = __webpack_require__(643);
-var Author = /** @class */ (function (_super) {
-    __extends(Author, _super);
-    function Author(props) {
-        return _super.call(this, props) || this;
+var react_router_dom_1 = __webpack_require__(14);
+var AppsSection = /** @class */ (function (_super) {
+    __extends(AppsSection, _super);
+    function AppsSection() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    Author.prototype.render = function () {
-        return React.createElement(Main_1.default, null);
+    AppsSection.prototype.render = function () {
+        return (React.createElement("div", { className: "apps" },
+            React.createElement("div", { className: 'appsItem' },
+                React.createElement(react_router_dom_1.Link, { to: '/tickets' }, "Tickets")),
+            React.createElement("div", { className: 'appsItem' },
+                React.createElement(react_router_dom_1.Link, { to: '/report' }, "Report")),
+            React.createElement("div", { className: 'appsItem' },
+                React.createElement(react_router_dom_1.Link, { to: '/chat' }, "Chat")),
+            React.createElement("div", { className: 'appsItem' },
+                React.createElement(react_router_dom_1.Link, { to: '/graphics' }, "Graphics")),
+            React.createElement("div", { className: 'appsItem' },
+                React.createElement(react_router_dom_1.Link, { to: '/test' }, "Test"))));
     };
-    return Author;
+    return AppsSection;
 }(React.Component));
-exports.default = Author;
+exports.default = AppsSection;
 
 
 /***/ }),
@@ -63518,9 +63546,41 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var Cover_1 = __webpack_require__(644);
-var Content_1 = __webpack_require__(645);
-var Menu_1 = __webpack_require__(654);
+var Main_1 = __webpack_require__(644);
+var Author = /** @class */ (function (_super) {
+    __extends(Author, _super);
+    function Author(props) {
+        return _super.call(this, props) || this;
+    }
+    Author.prototype.render = function () {
+        return React.createElement(Main_1.default, null);
+    };
+    return Author;
+}(React.Component));
+exports.default = Author;
+
+
+/***/ }),
+/* 644 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(0);
+var Cover_1 = __webpack_require__(645);
+var Content_1 = __webpack_require__(646);
+var Menu_1 = __webpack_require__(655);
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(props) {
@@ -63539,7 +63599,7 @@ exports.default = Main;
 
 
 /***/ }),
-/* 644 */
+/* 645 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63572,7 +63632,7 @@ exports.default = Cover;
 
 
 /***/ }),
-/* 645 */
+/* 646 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63589,14 +63649,14 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var Experience_1 = __webpack_require__(646);
-var Education_1 = __webpack_require__(647);
-var Portfolio_1 = __webpack_require__(648);
-var Skills_1 = __webpack_require__(649);
-var Awards_1 = __webpack_require__(650);
-var Certifications_1 = __webpack_require__(651);
-var Research_1 = __webpack_require__(652);
-var content = __webpack_require__(653);
+var Experience_1 = __webpack_require__(647);
+var Education_1 = __webpack_require__(648);
+var Portfolio_1 = __webpack_require__(649);
+var Skills_1 = __webpack_require__(650);
+var Awards_1 = __webpack_require__(651);
+var Certifications_1 = __webpack_require__(652);
+var Research_1 = __webpack_require__(653);
+var content = __webpack_require__(654);
 var Content = /** @class */ (function (_super) {
     __extends(Content, _super);
     function Content(props) {
@@ -63620,7 +63680,7 @@ exports.default = Content;
 
 
 /***/ }),
-/* 646 */
+/* 647 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63666,7 +63726,7 @@ exports.default = Experience;
 
 
 /***/ }),
-/* 647 */
+/* 648 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63709,7 +63769,7 @@ exports.default = Education;
 
 
 /***/ }),
-/* 648 */
+/* 649 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63752,7 +63812,7 @@ exports.default = Portfolio;
 
 
 /***/ }),
-/* 649 */
+/* 650 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63792,7 +63852,7 @@ exports.default = Skills;
 
 
 /***/ }),
-/* 650 */
+/* 651 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63833,7 +63893,7 @@ exports.default = Awards;
 
 
 /***/ }),
-/* 651 */
+/* 652 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63874,7 +63934,7 @@ exports.default = Certifications;
 
 
 /***/ }),
-/* 652 */
+/* 653 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63918,13 +63978,13 @@ exports.default = Research;
 
 
 /***/ }),
-/* 653 */
+/* 654 */
 /***/ (function(module, exports) {
 
 module.exports = {"Experience":[{"company":"Microsoft","date":"06/2016 - Present","title":"Frontend Developer","activities":["Developed Channel Inspector tool for user guidance about bots and features between channels.","Implemented markdown text processing for Bot Framework Web Chat.","Developed C# bots using Microsoft bot framework for testing framework in different channels (apps)."]},{"company":"Microsoft","date":"06/2016 - Present","title":"Senior QA Engineer","activities":["Lead QA for Bot Framework product team.","Implemented pre-production and production Bot-Framework SDK automatic tests using XPath in Selenium platform.","Implemented Bot Framework Web Chat UI Unit Tests using Electron, Nightmare, Mocha and Mock_DL libraries.","Provide technical support and assistance to test planning and customer support internal teams."]},{"company":"V&C Robotica y Automatizacion","date":"06/2015 - 06/2016","title":"iOS Developer","activities":["Designed and developed IOS architecture for the new Nescafe Dolce Gusto vending machine coffee selector application.","Defined maintenance and support for the coffee vending machine."]},{"company":"Stuffie.net","date":"10/2014 - 06/2016","title":"Frontend Developer","activities":["Founder of the social network Stuffie Company (http://www.stuffie.net)","Designed Stuffie.net web site first model.","Implemented Stuffie.net site to be deployed in a Startup by Dec 2015.","Implemented web portal under Cloud Computing using Azure Services and SQL 2012 as main database."]},{"company":"Procter & Gamble","date":"07/2007 - 10/2014","title":"Project Manager / Frontend Developer","activities":["Developed P&G’s Latin America mobility web site (SharePoint 2013) to reduce 20% of current company spends (~$1.7MM)","Designed IT Innovation web site using HTML5, CSS3 and JavaScript technologies.","Lead Mexico legal electronic invoice implementation for top 3 P&G Mexico customers using PMP methodology."]}],"Education":[{"university":"Tecnologico de Monterrey (ITESM CEM)","date":"01/2006 - 04/2008","degree":"Master of Science, Degree in Computer Science with Highest Honors","dissertation":"Dissertation: Behavior Agent Definition by Reinforcement Learning (Java)"},{"university":"Tecnologico de Monterrey (ITESM CEM)","date":"06/2001 - 12/2006","degree":"Bachelor of Science, Degree in Computer Science with Honors"}],"Portfolio":[{"name":"Microsoft Web Chat","description":"Rendering text and attachments through Web Chat channel","code":"Available here","date":"01/2017 - Present","skills":"React, Typescript, Redux, Mocha, Nightmare, Markdown-it"},{"name":"Microsoft Channel Inspector","description":"Web tool that describes differnt channel renders for bot responses.","code":"Available here","date":"06/2017 - Present","skills":"JavaScript, HTML5, CSS3, JQuery"},{"name":"Stuffie.net","description":"Social network media that enables people to share and get their personal belongings (stuff)","code":"Available here","date":"10/2014 - Present","skills":"C#, Visual Studio 2013, SQL Server 2012, Azure, XML, HTML5Up"},{"name":"Nescafe Dolce Gusto Vending Machine","description":"iPad application that is connected to a new vending machine. The iPad is the user-interface between the user and the vending.","code":"Available here","date":"06/2015 - 06/2016","skills":"C Objective, XCode, iPad, Mac OS X, Red Park SDK"}],"Skills":[{"name":"Front-End","technologies":"JavaScript, (5 years), jQuery, GeoCoding, HTML5, CSS3 (2 years), React (6 months)."},{"name":"Back-End","technologies":"C#, Java, C++, SQL (5 years), C-Objective, Swift (2 years), REST, SOAP (1 year)."},{"name":"QA Testing","technologies":"Selenium (2 years), Nightmare, Mocha (1 year), BrowserStack (6 months), WebDriverIO (6 months)."},{"name":"Repositories","technologies":"GitHub/GIT (2 years), Windows Azure (1 year), Microsoft Visual SourceSafe (3 years)."},{"name":"Languages","technologies":"Spanish (Native), English (Fluent), Portuguese (Intermediate)."}],"Awards":[{"name":"3rd. place, Second Latin American Robocup Contest.","year":2006,"institution":"IEEE Latin-American 2006"},{"name":"1st. place, First Latin American Robocup Contest.","year":2005,"institution":"IEEE Latin-American 2005"}],"Certifications":[{"name":"Successful Project Management (PMP). Proficient Level.","institution":"The Procter & Gamble Co.","year":2013},{"name":"Sun Certified Programmer for the Java 2 Platform 1.4","institution":"Sun Microsystems","year":2005},{"name":"Certificate in Computer Programming","institution":"Carnegie Technology Education","year":2003}],"Research":[{"authors":"Millan, E., Reyes-Rico, C., Sobrino Arvizu, A., and Ramírez, J. R","title":"Automatic Online Calibrating for Indoor and Outdoor Environments with Variable Illumination","institution":"4th IEEE Latin American Robotic Symposium.","date":"Nov. 9th 2007","place":"Monterrey, Mexico"},{"authors":"Reyes-Rico, Carlos","title":"Finding DNA Motifs Using Genetic Algorithms","institution":"Fifth Mexican International Conference on Artificial Intelligence.","date":"Nov. 13 – 17, 2006.","place":"Apizaco, Mexico","note":"IEEE Computer Society Publisher. P.p. 331 – 339."}]}
 
 /***/ }),
-/* 654 */
+/* 655 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

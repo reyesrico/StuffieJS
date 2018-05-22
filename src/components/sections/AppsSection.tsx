@@ -8,7 +8,8 @@ class AppsSection extends React.Component {
                 <div className='appsItem'><Link to='/tickets'>Tickets</Link></div>
                 <div className='appsItem'><Link to='/report'>Report</Link></div>
                 <div className='appsItem'><Link to='/chat'>Chat</Link></div>
-                <div className='appsItem'><Link to='/graphics'>Graphics</Link></div>                
+                <div className='appsItem'><Link to='/graphics'>Graphics</Link></div>  
+                <div className='appsItem'><Link to='/test'>Test</Link></div>              
             </div>
         );
     }

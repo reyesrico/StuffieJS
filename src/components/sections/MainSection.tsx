@@ -7,6 +7,7 @@ import Tickets from '../apps/Tickets';
 import Report from '../apps/Report';
 import Chat from '../apps/Chat';
 import Graphics from '../apps/Graphics';
+import Test from '../apps/Test';
 
 class MainSection extends React.Component {
     constructor(props: any) {
@@ -24,6 +25,7 @@ class MainSection extends React.Component {
                     <Route path='/report' component={Report} />
                     <Route path='/chat' component={Chat} />
                     <Route path='/graphics' component={Graphics} />
+                    <Route path='/test' render={()=><Test rows={10} cols={10} />} />
                 </Switch>
             </div>
         );
