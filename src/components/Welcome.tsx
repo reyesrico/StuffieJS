@@ -10,7 +10,7 @@ class Welcome extends React.Component {
         super(props);
     }
 
-    render() {
+    render() {        
         return (
             <div className='stuffie'>
                 <WelcomeBar />

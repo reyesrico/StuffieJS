@@ -73,9 +73,6 @@ class Login extends React.Component<{}, ILoginState> {
     }
 
     render() {
-        if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
-            return (<Redirect to='/' />);
-        }
         return (
             <div className='stuffieLogin'>
                 <h1>Login</h1>

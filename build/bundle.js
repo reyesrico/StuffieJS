@@ -45896,9 +45896,6 @@ var Login = /** @class */ (function (_super) {
         }
     };
     Login.prototype.render = function () {
-        if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
-            return (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
-        }
         return (React.createElement("div", { className: 'stuffieLogin' },
             React.createElement("h1", null, "Login"),
             React.createElement("form", { onSubmit: this.handleSubmit },
