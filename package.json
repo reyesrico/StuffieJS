@@ -27,7 +27,7 @@
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "foreman": "^2.0.0",
-    "marked": "^0.3.12",
+    "marked": "^0.3.19",
     "mongodb": "^3.0.0-rc0",
     "mongodb-core": "^3.0.0-rc0",
     "mongoose": "^5.0.2",
