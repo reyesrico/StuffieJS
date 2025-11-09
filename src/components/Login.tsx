@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import TextField from './web_objects/TextField';
 import Users from '../models/Users';
-var axios = require('axios');
 
 interface ILoginState {
     mail: string,
@@ -42,15 +41,23 @@ class Login extends React.Component<{}, ILoginState> {
 
         var login = this;
 
-        axios.get(url, user)
+        const params = new URLSearchParams({
+            mail: user.params.mail,
+            pass: user.params.pass
+        });
+        
+        fetch(url + '?' + params.toString())
             .then(function (res: any) {
-                console.log("res: " + res);
-                localStorage.setItem('username', res.data.mail);
-                localStorage.setItem('password', res.data.pass);
-                localStorage.setItem('name', res.data.name);
+                return res.json();
+            })
+            .then(function (data: any) {
+                console.log("data: " + data);
+                localStorage.setItem('username', data.mail);
+                localStorage.setItem('password', data.pass);
+                localStorage.setItem('name', data.name);
                 login.setState({ redirectToNewPage: true })
                 alert("Login Successful using DB");
-            }, login)
+            })
             .catch(function (err: any) {
                 console.error("err: " + err);
                 var users = new Users();
@@ -62,7 +69,7 @@ class Login extends React.Component<{}, ILoginState> {
                     alert("Login Successful using Data");
                     login.setState({ redirectToNewPage: true });
                 }
-            }, login);
+            });
     }
 
     componentWillUpdate() {

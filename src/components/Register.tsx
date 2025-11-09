@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import TextField from './web_objects/TextField';
 
-var axios = require('axios');
-
 interface IRegisterState {
     mail: string,
     password: string,
@@ -42,8 +40,17 @@ class Register extends React.Component<{}, IRegisterState> {
         var user = { mail: this.state.mail, pass: this.state.password, name: this.state.name };
         console.log("url: " + url);
 
-        axios.post(url, user)
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        })
             .then(function (res: any) {
+                return res.json();
+            })
+            .then(function (data: any) {
                 console.log("entra res");
             })
             .catch(function (err: any) {

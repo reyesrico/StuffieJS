@@ -5,7 +5,6 @@ import Products from '../models/Products';
 import Categories from '../models/Categories';
 import TextField from './web_objects/TextField';
 import DropDown from './web_objects/DropDown';
-var axios = require('axios');
 
 interface IProductProps {
     name: string
@@ -69,12 +68,15 @@ class Product extends React.Component<IProductProps, IProductState> {
 
         var productPage = this;
 
-        axios.get(url)
+        fetch(url)
             .then(function (res: any) {
-                console.log("res: " + res);
+                return res.json();
+            })
+            .then(function (data: any) {
+                console.log("data: " + data);
                 alert("Categories Successful using DB");
-                productPage.setState({categories: res.data});
-            }, productPage)
+                productPage.setState({categories: data});
+            })
             .catch(function (err: any) {
                 console.error("err: " + err);
             });
